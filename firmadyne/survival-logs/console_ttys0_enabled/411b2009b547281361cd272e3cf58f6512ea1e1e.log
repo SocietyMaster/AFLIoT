@@ -1,0 +1,127 @@
+>> Database Image ID: 69
+
+/home/zhumengfan/firmware/firmwares/411b2009b547281361cd272e3cf58f6512ea1e1e.trx
+>> MD5: 9ee2334b2afc690c09e5b6e2c1e713f5
+>> Tag: 69
+>> Temp: /tmp/tmpj7vUkh
+>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+>>>> Squashfs filesystem, little endian, version 4.0, compression:xz, size: 8628372 bytes, 1233 inodes, blocksize: 131072 bytes, created: 2014-10-07 10:32:35
+>>>> Found Linux filesystem in /tmp/tmpj7vUkh/_411b2009b547281361cd272e3cf58f6512ea1e1e.trx.extracted/squashfs-root!
+>> Skipping: completed!
+>> Cleaning up /tmp/tmpj7vUkh...
+./bin/busybox: armel
+Querying database for architecture... armel
+----Running----
+----Copying Filesystem Tarball----
+----Creating QEMU Image----
+Formatting '/home/zhumengfan/firmadyne//scratch//69//image.raw', fmt=raw size=1073741824
+----Creating Partition Table----
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0xc0def978.
+
+Command (m for help): Created a new DOS disklabel with disk identifier 0x7d3daf38.
+
+Command (m for help): Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): Partition number (1-4, default 1): First sector (2048-2097151, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (2048-2097151, default 2097151): 
+Created a new partition 1 of type 'Linux' and of size 1023 MiB.
+
+Command (m for help): The partition table has been altered.
+Syncing disks.
+
+----Mounting QEMU Image----
+add map loop0p1 (252:0): 0 2095104 linear 7:0 2048
+----Creating Filesystem----
+mke2fs 1.42.13 (17-May-2015)
+Discarding device blocks:   4096/261888             done                            
+Creating filesystem with 261888 4k blocks and 65536 inodes
+Filesystem UUID: a1499bba-62a3-46bf-a698-fb0fd4c17843
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Writing superblocks and filesystem accounting information: 0/8   done
+
+----Making QEMU Image Mountpoint----
+----Mounting QEMU Image Partition 1----
+----Extracting Filesystem Tarball----
+----Creating FIRMADYNE Directories----
+----Patching Filesystem (chroot)----
+Creating /etc/TZ!
+Creating /etc/hosts!
+Creating /etc/passwd!
+Warning: Recreating device nodes!
+Removing /etc/scripts/sys_resetbutton!
+----Setting up FIRMADYNE----
+----Unmounting QEMU Image----
+loop deleted : /dev/loop0
+Querying database for architecture... armel
+Running firmware 69: terminating after 60 secs...
+qemu-system-arm: terminating on signal 2 from pid 96881 (timeout)
+Inferring network...
+Interfaces: []
+Done!
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: firmadyne.syscall=1 root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000162] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000309] Switching to timer-based delay loop, resolution 16ns
+[    2.404741] Console: colour dummy device 80x30
+[    2.405152] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    2.405328] pid_max: default: 32768 minimum: 301
+[    2.406315] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    2.406358] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    2.413810] CPU: Testing write buffer coherency: ok
+[    2.420028] Setting up static identity map for 0x40008240 - 0x40008298
+[    2.434959] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    5.602601] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    5.612051] NET: Registered protocol family 16
+[    5.615301] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    5.619477] cpuidle: using governor ladder
+[    5.619793] cpuidle: using governor menu
+[    5.640896] Serial: AMBA PL011 UART driver
+[    5.643154] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    5.651210] console [ttyS0] enabled
+Starting firmware emulation... use Ctrl-a + x to exit
+qemu-system-arm: terminating on signal 2 from pid 97036 (timeout)

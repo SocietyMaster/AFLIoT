@@ -1,0 +1,137 @@
+\section{Implementation}\label{sec:impl}
+%IDA ARM platform
+In this section, we describe technical details as well as challenges to implement~\sysname. 
+
+\subsection{Fuzzer integration}\label{sec:impl:integ}
+Recall that our goal is to perform efficient coverage-based guided fuzzing on binary programs in Linux-based IoT devices. To this end, our work is mainly focused on
+how fuzzer interacts with the target binary program instead of improving its fuzzing strategies. As a result, we adopted AFL directly into our fuzzing framework, leverage on instrumented code to track branch coverage information and make it fully compatible to work with AFL. This also guarantee that any improvement from AFL community will also benefits our system without any modifications. Beside, we compiled the AFL initialization code into a shared library, so it can be loaded into target program before the initialization phase of fuzzing, and then the fork-server and shared memory in AFL will be initialized by the code stub that we instrument into the target program via specific interfaces in the shared library.
+
+\subsection{Device Setup}
+
+As mentioned in previous sections, hardware resources are extremely limited on the most of IoT devices, where most vendors will deploy a streamlined runtime library such as $uClibc$ instead of standard C library $libc$, causing problems when fuzzing on these devices. AFL requires certain symbols in $libc$ to execute correctly. However, such symbols are sometimes missing on the IoT devices where $uClibc$~\cite{uclibc} is deployed. Our solution is to performs static compilation specifically for each device, so additional library dependencies are unnecessary.  
+
+Besides, the ELF loader that comes with some IoT devices does not enable TLS (Thread local storage)-related support. Therefore programs with TLS variables cannot be loaded on these devices. AFL requires TLS support to track the execution path of different thread in the target program. Fortunately, we notice that even though sometimes the ELF loader may not provide TLS support, however, the Linux kernel is compiled with TLS feature enabled. Thus we can easily fix the problem by just rebuilding a new version of ELF loader with TLS support enabled for the target IoT device and switch to this new loader when necessary.
+
+In addition, most COTS IoT devices do not preserve debug interfaces for shell access, which is a basic requirement for fuzzing on device. Fortunately, such debug interfaces do exist in most devices for factory testing. For security reasons, these interfaces are usually blocked after passing all tests. So we use several tricks to activate these debug interface in order to enable shell access.
+
+\subsection{Basic Block Identification}
+Most binaries from IoT devices are stripped, which can be challenging for reverse engineering tools to completely identify the code that resides in the binary. But as we mentioned in previous sections, a failure in identifying certain basic blocks will only affect path resolution accuracy in AFL and does not cause any error in fuzzing. We test several existing opensource reverse engineering tools, such as Barf~\cite{heitman2014barf}, Sibyl~\cite{sibyl} and Miasm\cite{miasm}, but none of them could provide acceptable accuracy. So we end up leveraging on IDA Pro~\cite{ida}, a well-known commercial reverse engineering tool. It retrieves basic blocks information from the target binary program with good accuracy which meets the requirement of binary level instrumentation.
+
+
+\begin{figure*}[htbp]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s3_1, firstnumber=1][htbp]
+loc_1000: add r1, pc, r2
+loc_1004: ...
+loc_1008: ...
+...
+...
+\end{lstlisting}
+\caption{Original Code}
+\end{subfigure}%
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s3_2, firstnumber=1][htbp]
+stmdb sp, {r3}
+ldr r3, =loc_1008
+add r1, r3, r2
+ldmdb sp, {r3}
+b loc_1004
+\end{lstlisting}
+\caption{After Instrumentation}
+\end{subfigure}%
+
+\caption{Wrap Solution for T3 instructions~(ARM).}
+\label{figs:t3}
+\end{figure*}
+
+
+\begin{figure*}[htbp]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s4_1, firstnumber=1][htbp]
+loc_1000: push {r0, r2, r4, pc}
+loc_1004: ...
+loc_1008: ...
+...
+...
+...
+...
+\end{lstlisting}
+\caption{Original Code}
+\end{subfigure}%
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s4_2, firstnumber=1][htbp]
+sub sp, sp, 4
+stmdb sp, {r1}
+ldr pivot, =loc_1008
+stmia sp, {r1}
+ldmdb sp, {r1}
+push {r0, r2, r4}
+b loc_1004
+\end{lstlisting}
+\caption{After Instrumentation}
+\end{subfigure}%
+
+\caption{Wrap Solution for T4 instructions~(ARM).}
+\label{figs:t4}
+\end{figure*}
+
+
+
+
+\begin{figure*}[htbp]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s5_1, firstnumber=1][htbp]
+loc_1000: ldr pc, [pc, r3, lsl#2]
+loc_1004: ...
+loc_1008: ...
+...
+...
+...
+...
+\end{lstlisting}
+\caption{Original Code}
+\end{subfigure}%
+\begin{subfigure}[b]{0.48\textwidth}
+\begin{lstlisting}[language=ARMASM,label=lst:s5_2, firstnumber=1][htbp]
+sub sp, sp, 4
+stmdb sp, {r1}
+add sp, sp, 4
+ldr pivot, =loc_1008
+ldr r1, [r1, r3, lsl#2]
+stmdb sp, {r1}
+ldmdb sp, {r1, pc}
+\end{lstlisting}
+\caption{After Instrumentation}
+\end{subfigure}%
+
+\caption{Wrap Solution for T5 instructions~(ARM).}
+\label{figs:t5}
+\end{figure*}
+
+\subsection{Instruction Wrapping}\label{sec:impl:wrap}
+
+%As mentioned in Section~\ref{sec:design:wrap}, to guarantee successful execution of the original instruction~(e.g. $inst\_A$ in Figure~\ref{figs:instrumentation}) at new position, we provide different wrap solutions for various types of instructions. In this section, we demonstrate how we implement these solutions on ARM platform. Our current implementation of \sysname only targets at binary programs in ARM devices. 
+
+As mentioned in Section~\ref{sec:design:wrap}, to guarantee successful execution of the original instruction~(e.g. $inst\_A$ in Figure~\ref{figs:instrumentation}) at new position, we provide different wrap solutions for various types of instructions in binary level instrumentation. We successfully apply all these solutions~(Section~\ref{sec:impl:wrap} S1-S5) in \sysname for ARM binary programs. Although our current implementation of \sysname only targets at binary programs on ARM platform, these wrap solutions are general and can be ported to binaries on other platforms~(e.g. MIPS) without much effort. Next, we give examples to demonstrate how we implement these wrap solutions, specifically S3, S4 and S5 for T3,T4 and T5 instructions. We omit T1 and T2 instruction here because their wrap solutions~(S1 and S2) are relatively simple to understand.
+
+For PC-read-only instruction~(T3),  it reads from PC but writes somewhere else. For example, $add r1, pc, r2$ is a typical T3 instruction on ARM platform. As we described in S3, first we need to find a unused pivot register, save its original value to stack, and store the value of PC. Here we choose $r3$ as a pivot register and the wrap solution for $add r1, pc, r2$ is illustrated in Figure~\ref{figs:t3}.
+
+For PC read-only instruction with stack operation~(T4), it acts just like T3 instructions except involving stack operation. As a result, we need to coordinate the position stack for PC, pivot register and other registers. For example, $push {r0, r2, r4, pc}$ is a typical T4 instruction on ARM platform. If we choose  $r1$ as a
+pivot register, then the wrap solution for $push {r0, r2, r4, pc}$ is illustrated in Figure~\ref{figs:t4}.
+
+For PC read-write instruction~(T5), it involves in both read and write operations that are related to PC. Figure~\ref{figs:t5} demonstrates how we implement S5 for a typical T5 instruction $ldr pc, [pc, r3, lsl\#2]$ where $r1$ is chosen as the pivot register.
+
+
+We implemented our binary level instrumentation framework for ELF binaries by leveraging on keystone-engine~\cite{keystone} as an assembler and capstone-engine~\cite{capstone} as a disassembler. Both of them support a variety of architectures, making it possible for our system to easily adapted to binary programs from other architectures. Overall, our binary level instrumentation framework is implemented in python with 5300 lines of code.
+
+
+\subsection{Input Redirection}
+For network daemon programs, we implement an efficient input redirection mechanism between a fuzzer and a target network daemon programs. Specifically, we implement a shared library called $libsockets$ in which we rewrite all of the common Linux socket APIs~(See Section~\ref{sec:design:daemons}). With dynamic linking, we successfully hook all these socket APIs in the execution of the network daemon programs using $libsockets$ and performs checks on parameters to determine whether to intercept or forward network traffic.  In total, the implementation of input redirection takes about 300 lines of python code and 3000 lines of C code.
+
+% toolchain and compilation
+%TLS support
+
+%\section{Device Setup}

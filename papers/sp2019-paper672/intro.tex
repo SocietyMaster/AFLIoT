@@ -1,0 +1,87 @@
+\section{Introduction}\label{sec:intro}
+
+Although it has been decades since the concept of Internet of Things~(IoT) was first presented~\cite{wikiiot}, only in recent years have we witnessed an outbreak of its application in our daily life. Various types of Commercial-Off-The-Shelf~(COTS) IoT devices emerged rapidly, such as IP cameras, home routers, printers, smart TVs, lamps, fridges and air-conditioners. These devices extend the Internet connectivity beyond traditional devices~(e.g. computers and smartphones) to any object we may use. Thus, it greatly expands the capability of the Internet and provides convenience for everyone.
+
+However, the widespread application of IoT devices also brings new challenges for security and privacy. Interconnection of these devices that were originally isolated from each other significantly expands the attacking surface and thus makes IoT devices more vulnerable to cyber-attacks. For example, privilege escalation vulnerabilities have been found in smart lock and can be used by attackers to break the authentication~\cite{lock}. Even worse, security researchers~\cite{nie2017free} have demonstrated that it is possible to penetrate into a car and gain remote control of Engine Control Units~(ECU) simply with the help a phishing WiFi hotspot. Without physical access, both attacks were considered impossible in the past. Moreover, compared with traditional devices like smartphone, IoT devices often have relatively limited hardware resources and thus usually lack security mechanisms to prevent various attacks due to performance concern. That makes IoT devices even more exploitable.
+
+To mitigate aforementioned security issues, many existing works attempted to find software vulnerabilities and flaws in IoT devices. Costin et al.~\cite{costin2014large} leveraged static analysis techniques to automatically acquire and analyze a large number of firmwares. They used specific patterns to search for existing security flaws in these firmwares. Although this approach is lightweight and scalable, it suffers from the inherited limitation of static analysis: accuracy.
+
+Zaddach et al.~\cite{zaddach2014avatar} however took a dynamic approach to conduct security analysis on IoT devices by monitoring the firmwares execution on a hybrid system combining both emulator and real IoT hardware. The hybrid system automatically forwards all I/O accesses from the emulator to the real device and therefore precisely emulates the execution of the firmware. While this approach may be accurate, it still suffers from efficiency and scalability issues. Chen et al.~\cite{chen2016towards} designed a dynamic analysis system for Linux-based IoT device's firmware. It takes an emulator-based approach to identify software vulnerabilities by performing large scale automated black-box testing with web exploits. Unfortunately, emulating various types of IoT devices is a non-trivial task. Their approach failed to resolve many dependencies such as a specific version of Linux kernel or certain kind of kernel modules before the OS can actually boot. Such failures may cause a large number of kernel panics during the emulation, which decreases the effectiveness of their approach. 
+
+To overcome the limitations of existing work, we take a different approach by using fuzzing in the security analysis of Linux-based IoT devices. Fuzzing is an effective technique to find software bugs. For example, AFL~\cite{aflweb} is a well-known coverage-based gray-box fuzzer~(or fuzzer), which mutates the input to trigger bugs in the target program. AFL has identified a large number of security vulnerabilities in many popular open source projects. However, although fuzzing has been studied in the field of software security for years, even today we still rarely see its application in IoT devices. 
+
+
+Compared with its application on x86 platforms, fuzzing on IoT devices poses the following major challenges: 
+
+\begin{enumerate}
+\item \textbf{No source code.} Commercial-off-the-shelf (COTS) IoT devices are usually installed with many proprietary software. Generally, source code and documentation of such software are unavailable. All existing solutions for binary program fuzzing require runtime emulation, which is non-trivial on IoT devices. %So it is difficult to apply coverage-based fuzzing techniques in these software. 
+
+\item \textbf{Limited resources.} In comparison with x86 platform, IoT devices often have limited resource in terms of CPU, memory and storage. So lightweight analysis is required on IoT devices. Trade-off between accuracy and efficiency must be taken into consideration in system design and implementation.
+\item \textbf{Network daemon programs.} Compared with most x86 platform devices, network daemon programs are more common on IoT devices, and sometimes even outnumber command line programs. These daemon programs take input from a network interface rather than a file or the standard input. Since traditional fuzzers can mutate only files or the standard input, we must design mechanisms to allow them to interact with daemon programs.  
+
+%Besides, it requires additional migration and optimization work to integrate a fuzzer with the IoT device. 
+
+%Consequently, there must be a trade-off between accuracy and efficiency when it comes to the system design, otherwise the fuzzing will be infeasible. 
+
+%\item \textbf{No debug interface.} For security concerns, debug interface~(e.g. shell access) is usually disabled in most of COTS IoT devices, which makes it difficult to fuzzing on the target device.
+
+%\item \textbf{\hl{Fuzzer integration.}} Unlike x86 platform, CPU architecture/instruction, operating system and tool-chain vary greatly in different IoT devices. Such differences bring significant challenges to fuzzer integration. 
+
+\end{enumerate}
+
+Despite of many existing works~\cite{rawat2017vuzzer, bohme2017coverage, cadar2008klee, stephens2016driller, godefroid2012sage, godefroid2005dart, sen2005cute, cha2015program, haller2013dowsing, ganesh2009taint, wang2010taintscope, bastani2017synthesizing, godefroid2017learn, wang2017skyfire} focusing on research of various fuzzing tools, all of them fail to address these challenges. Consequently, unlike all these works, our goal is to propose a novel approach to adapt existing fuzzer to work with binary programs on IoT devices for efficient and comprehensive security analysis. 
+
+
+To this end, in this paper we design and implement \sysname, a lightweight and easy deployable coverage-based fuzzing framework for Linux-based IoT devices. \sysname extends AFL by implementing binary level instrumentation, so it can support native execution of the target binary program and therefore significantly reduces the performance overhead. In this way, \sysname makes it possible to directly fuzz binary program on IoT devices instead of expensive runtime emulation and therefore addresses the first challenge.
+
+Considering the limited resources on IoT devices, our solution consists of two phases for each target binary program in fuzzing: 1) Instrumentation phase. 2) Fuzzing phase. As shown in Figure~\ref{figs:arch}, \sysname first completes the instrumentation phase on a powerful Linux server and then deploys the instrumented program with the fuzzer on the IoT device. Our two phase design significantly eases the burden of IoT devices and thus addresses the second challenge.   
+
+%\sysname also provides capability of fuzzing on network daemon programs which usually makes up the majority of software on most Linux-based IoT devices. Unlike a command-line program, a network daemon program in general only take meaningful input from network interfaces.
+
+Besides, our design also provides solutions to fuzzing on network daemon programs. Specifically, \sysname can forward all input from a fuzzer to a specific network interface which the target daemon program listens on. Such forwarding is achieved through a series of hook operations on Linux socket APIs. In this way, \sysname avoids expensive network operations and thus makes it more efficient for fuzzing on network daemon programs, which definitely addresses the third challenge.
+
+To our best knowledge, we are the first to provide a practical fuzzing solution to binary programs on Linux-based IoT devices. We evaluate \sysname on both benchmarks and real-world devices. Results shows that \sysname achieves nearly the same performance on binary program in comparison with programs that AFL compiles from the source code and only has 10\% performance overhead on average~(See Section~\ref{sec:eval:performance}). In contrast, the performance overhead of the emulation-based approach that originally implemented in AFL ranges from 100\% to 400\%~\cite{aflreadme}, which is obviously too expensive for most IoT devices. 
+
+Overall, \sysname successfully identify 157 unique crashes in 10 binary programs on real-world Linux-based IoT devices in our evaluation~(See Section~\ref{sec:eval:real}), showing that the approach that we apply in \sysname is both efficient and effective to find software bugs in binary programs on Linux-based IoT devices. 
+
+%To summarize, our paper makes the following contributions: 
+
+%\begin{itemize}
+% \item We present \sysname, a lightweight and easy deployable coverage-based fuzzing framework that targets at binary programs on Linux-based IoT devices. 
+% 
+% 
+% \item Our design and implementation of \sysname addresses several major challenges of fuzzing binary programs on IoT devices, such as fuzzer integration~(Section~ \ref{sec:impl:integ}), binary level instrumentation for executable programs and library programs~(Section~\ref{sec:design:inst}) and input forwarding for network daemon programs ~(Section~\ref{sec:design:daemons}).
+% \item 
+ 
+ %We evaluate \sysname on both benchmark and real-world IoT device, which proves its efficiency and effectiveness in finding software bugs in binary programs. In all, \sysname successfully identify \hl{157} unique crashes in \hl{10} binary program on real-world Linux-based IoT devices
+%\end{itemize}
+
+The rest of this paper is organized as follow. Section~\ref{sec:background} provides relevant background of AFL. Section~\ref{sec:design} and Section~\ref{sec:impl} depict the system design and implementation of \sysname, respectively. Section~\ref{sec:eval} evaluates \sysname on both benchmarks and real-world IoT devices. Section~\ref{sec:limit} discuss the limitation of our work. Section~\ref{sec:related} introduces related works and Section~\ref{sec:con} conclude the paper.
+
+
+%Compared with AFL's emulation-based solution which often suffers a 100\% to 400\% performance overhead and thus is infeasible on most IoT devices, \sysname achieves nearly the same execution performance on binary program and only
+
+%in comparison with programs that AFL compiles from the source code~\ref{}. 
+
+%2 to 5 times performance overhead
+
+%
+
+%Mitigation: 
+
+%Existing work: static: \cite{costin}: dynamic: \cite{Zaddach}, \cite{firmadyne} %have made their effort to mitigate security flaws: 
+%explain their work:
+%limitation: 
+%Costin: validate security policies or properties 
+
+%AVATAR: not efficient involving both hardware devices 
+
+%FIRMADYNE: black-box emulator based approach, unable to resolve dependencies like kernel module, kernel version, focus on very limited existing exploits for penetration test, not accurate.
+
+
+%Fuzzing 
+%Main Challenges
+%Our approach
+%Our Contribution
+
+% our contribution is on binary-level instrumentation, not fuzzer. Our approach can be applied to many existing fuzzing approach.

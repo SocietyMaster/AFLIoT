@@ -1,0 +1,6315 @@
+>> Database Image ID: 215
+
+/home/zhumengfan/firmware/firmwares/397a80479afdea5233670f7b4e28adb3e879ff6c.zip
+>> MD5: 55d72972f59e32bb30ddb1c4e8098a23
+>> Tag: 215
+>> Temp: /tmp/tmpB9tNeb
+>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+>>>> Zip archive data, at least v2.0 to extract, compressed size: 9914018, uncompressed size: 9920570, name: R6300v2-V1.0.1.72_1.0.21.chk
+>> Recursing into archive ...
+	
+/tmp/tmpB9tNeb/_397a80479afdea5233670f7b4e28adb3e879ff6c.zip.extracted/R6300v2-V1.0.1.72_1.0.21.chk
+	>> MD5: 07a2daec7f1e3f2847b2294167e9e39f
+	>> Tag: 215
+	>> Temp: /tmp/tmpWqGWpy
+	>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+	>>>> Squashfs filesystem, little endian, version 4.0, compression:xz, size: 8048900 bytes, 939 inodes, blocksize: 131072 bytes, created: 2013-04-09 09:19:45
+	>>>> Found Linux filesystem in /tmp/tmpWqGWpy/_R6300v2-V1.0.1.72_1.0.21.chk.extracted/squashfs-root!
+	>> Skipping: completed!
+	>> Cleaning up /tmp/tmpWqGWpy...
+>> Skipping: completed!
+>> Cleaning up /tmp/tmpB9tNeb...
+./bin/busybox: armel
+Querying database for architecture... armel
+----Running----
+----Copying Filesystem Tarball----
+----Creating QEMU Image----
+Formatting '/home/zhumengfan/firmadyne//scratch//215//image.raw', fmt=raw size=1073741824
+----Creating Partition Table----
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0x3b2601ad.
+
+Command (m for help): Created a new DOS disklabel with disk identifier 0xc6163433.
+
+Command (m for help): Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): Partition number (1-4, default 1): First sector (2048-2097151, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (2048-2097151, default 2097151): 
+Created a new partition 1 of type 'Linux' and of size 1023 MiB.
+
+Command (m for help): The partition table has been altered.
+Syncing disks.
+
+----Mounting QEMU Image----
+add map loop0p1 (252:0): 0 2095104 linear 7:0 2048
+----Creating Filesystem----
+mke2fs 1.42.13 (17-May-2015)
+Discarding device blocks:   4096/261888             done                            
+Creating filesystem with 261888 4k blocks and 65536 inodes
+Filesystem UUID: 0426cb9f-349a-4440-8ef3-63dd0df124ec
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Writing superblocks and filesystem accounting information: 0/8   done
+
+----Making QEMU Image Mountpoint----
+----Mounting QEMU Image Partition 1----
+----Extracting Filesystem Tarball----
+----Creating FIRMADYNE Directories----
+----Patching Filesystem (chroot)----
+Creating /etc/TZ!
+Creating /etc/hosts!
+Creating /etc/passwd!
+Warning: Recreating device nodes!
+Removing /etc/scripts/sys_resetbutton!
+Creating default rip_multicast!
+Creating default bs_trustedip_enable!
+Creating default filter_rule_tbl!
+Creating default rip_enable!
+----Setting up FIRMADYNE----
+----Unmounting QEMU Image----
+loop deleted : /dev/loop0
+Querying database for architecture... armel
+Running firmware 215: terminating after 60 secs...
+qemu-system-arm: terminating on signal 2 from pid 176455 (timeout)
+Inferring network...
+Interfaces: []
+Done!
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: firmadyne.syscall=1 root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000163] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000316] Switching to timer-based delay loop, resolution 16ns
+[    0.003428] Console: colour dummy device 80x30
+[    0.003765] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.003899] pid_max: default: 32768 minimum: 301
+[    0.004795] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.004833] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.014516] CPU: Testing write buffer coherency: ok
+[    0.718615] Setting up static identity map for 0x40008240 - 0x40008298
+[    0.733563] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.745718] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    1.817418] NET: Registered protocol family 16
+[    1.820691] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    1.825073] cpuidle: using governor ladder
+[    1.825248] cpuidle: using governor menu
+[    1.846026] Serial: AMBA PL011 UART driver
+[    1.848274] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    1.855950] console [ttyS0] enabled
+[    1.878376] vgaarb: loaded
+[    1.879908] SCSI subsystem initialized
+[    1.880952] usbcore: registered new interface driver usbfs
+[    1.881302] usbcore: registered new interface driver hub
+[    1.881616] usbcore: registered new device driver usb
+[    2.949898] cfg80211: Calling CRDA to update world regulatory domain
+[    2.952221] Switched to clocksource arch_sys_counter
+[    2.969616] NET: Registered protocol family 2
+[    2.974942] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    2.975195] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    2.975500] TCP: Hash tables configured (established 2048 bind 2048)
+[    2.976039] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    2.976286] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    2.977680] NET: Registered protocol family 1
+[    2.978125] PCI: CLS 0 bytes, default 64
+[    2.985290] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    2.987850] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    2.993234] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.994229] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    2.995015] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[    3.964724] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    3.965062] io scheduler noop registered
+[    3.965290] io scheduler cfq registered (default)
+[    3.965962] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
+[    3.967281] ------------[ cut here ]------------
+[    3.967482] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/fs/sysfs/dir.c:31 sysfs_warn_dup+0x50/0x6c()
+[    3.967709] sysfs: cannot create duplicate filename '/class/gpio'
+[    3.967886] Modules linked in:
+[    3.968203] CPU: 0 PID: 1 Comm: swapper Not tainted 4.1.17+ #1
+[    3.968338] Hardware name: Generic DT based system
+[    3.969017] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    3.969298] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    3.969504] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    3.969741] [<c0024b08>] (warn_slowpath_fmt) from [<c00e363c>] (sysfs_warn_dup+0x50/0x6c)
+[    3.969919] [<c00e363c>] (sysfs_warn_dup) from [<c00e3714>] (sysfs_create_dir_ns+0x74/0x84)
+[    3.970098] [<c00e3714>] (sysfs_create_dir_ns) from [<c018e6ac>] (kobject_add_internal+0xb8/0x2ac)
+[    3.970284] [<c018e6ac>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    3.970461] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    3.970633] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    3.970802] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    3.970984] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    3.971185] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    3.971355] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    3.971535] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    3.971702] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    3.972193] ---[ end trace 8c9c58e9b87b1906 ]---
+[    3.972404] ------------[ cut here ]------------
+[    3.972519] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/lib/kobject.c:240 kobject_add_internal+0x240/0x2ac()
+[    3.972738] kobject_add_internal failed for gpio with -EEXIST, don't try to register things with the same name in the same directory.
+[    3.972956] Modules linked in:
+[    3.973100] CPU: 0 PID: 1 Comm: swapper Tainted: G        W       4.1.17+ #1
+[    3.973236] Hardware name: Generic DT based system
+[    3.973362] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    3.973527] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    3.973698] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    3.973891] [<c0024b08>] (warn_slowpath_fmt) from [<c018e834>] (kobject_add_internal+0x240/0x2ac)
+[    3.974087] [<c018e834>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    3.974270] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    3.974439] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    3.974606] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    3.974796] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    3.974980] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    3.975157] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    3.975347] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    3.975511] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    3.975691] ---[ end trace 8c9c58e9b87b1907 ]---
+[    3.975887] firmadyne: Cannot create device class: gpio!
+[    3.977681] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    3.977861] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    4.060518] PCI host bridge /pcie@10000000 ranges:
+[    4.061084]    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    4.061444]   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    4.061572]   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    4.062392] pci-host-generic 3f000000.pcie: resource collision: [mem 0x00000000-0xffffffff] conflicts with /pl011@9000000 [mem 0x09000000-0x09000fff]
+[    4.063101] pci-host-generic: probe of 3f000000.pcie failed with error -16
+[    4.074451] Non-volatile memory driver v1.3
+[    4.613316] brd: module loaded
+[    4.623273] loop: module loaded
+[    5.685468]  vda: vda1
+[    5.697468] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    5.698092] Intel/Sharp Extended Query Table at 0x0031
+[    5.699251] Using buffer write method
+[    6.723869] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    6.730996] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    6.731255] Intel/Sharp Extended Query Table at 0x0031
+[    6.732309] Using buffer write method
+[    6.732434] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    6.732650] Concatenating MTD devices:
+[    6.732756] (0): "0.flash"
+[    6.732830] (1): "0.flash"
+[    6.732900] into device "0.flash"
+[    6.734357] cfg80211: Calling CRDA to update world regulatory domain
+[    6.746629] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.746881] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.747071] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.747241] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.747411] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.747580] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    6.748008] nand: device found, Manufacturer ID: 0x98, Chip ID: 0x39
+[    6.748156] nand: Toshiba NAND 128MiB 1,8V 8-bit
+[    6.748277] nand: 128 MiB, SLC, erase size: 16 KiB, page size: 512, OOB size: 16
+[    6.749175] flash size: 128 MiB
+[    6.749259] page size: 512 bytes
+[    6.749334] OOB area size: 16 bytes
+[    6.749414] sector size: 16 KiB
+[    6.749486] pages number: 262144
+[    6.749558] pages per sector: 32
+[    6.749630] bus width: 8
+[    6.749690] bits in sector size: 14
+[    6.749767] bits in page size: 9
+[    6.749842] bits in OOB size: 4
+[    6.749917] flash size with OOB: 135168 KiB
+[    6.750005] page address bytes: 4
+[    6.750078] sector address bytes: 3
+[    6.750159] options: 0x42
+[    7.801537] Scanning device for bad blocks
+[    7.909400] firmadyne: do_execve: /firmadyne/console
+[    7.909615] OFFSETS: offset of pid: 0x190 offset of comm: 0x270
+[    7.910080] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    7.910501] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    7.912826] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    7.914259] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    7.915621] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    7.917045] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    7.918405] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    7.919796] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    7.921366] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    7.922869] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    7.924243] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    7.925643] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    7.931368] tun: Universal TUN/TAP device driver, 1.6
+[    7.931509] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    8.990357] PPP generic driver version 2.4.2
+[    8.991194] PPP BSD Compression module registered
+[    8.991377] PPP Deflate Compression module registered
+[    8.991624] PPP MPPE Compression module registered
+[    8.991807] NET: Registered protocol family 24
+[    8.992279] PPTP driver version 0.8.5
+[    9.540714] usbcore: registered new interface driver usb-storage
+[    9.544482] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    9.545305] hidraw: raw HID events driver (C) Jiri Kosina
+[    9.545857] usbcore: registered new interface driver usbhid
+[    9.546004] usbhid: USB HID core driver
+[    9.546484] Netfilter messages via NETLINK v0.30.
+[    9.547168] nf_conntrack version 0.5.0 (3958 buckets, 15832 max)
+[    9.548668] ctnetlink v0.93: registering with nfnetlink.
+[    9.550151] ipip: IPv4 over IPv4 tunneling driver
+[    9.552376] gre: GRE over IPv4 demultiplexor driver
+[    9.552542] ip_gre: GRE over IPv4 tunneling driver
+[    9.557224] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    9.558967] arp_tables: (C) 2002 David S. Miller
+[    9.560091] Initializing XFRM netlink socket
+[    9.560593] NET: Registered protocol family 10
+[    9.567906] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   10.122355] sit: IPv6 over IPv4 tunneling driver
+[   10.126282] NET: Registered protocol family 17
+[   10.126951] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[   10.127297] Bridge firewalling registered
+[   10.127441] Ebtables v2.0 registered
+[   10.127961] cfg80211: Calling CRDA to update world regulatory domain
+[   10.128941] 8021q: 802.1Q VLAN Support v1.8
+[   10.129592] Registering SWP/SWPB emulation handler
+[   10.132489] rtc-pl031 9010000.pl031: setting system clock to 2018-07-19 15:38:11 UTC (1532014691)
+[   10.142970] EXT4-fs (vda1): couldn't mount as ext3 due to feature incompatibilities
+[   10.145047] EXT4-fs (vda1): mounting ext2 file system using the ext4 subsystem
+[   10.155460] EXT4-fs (vda1): mounted filesystem without journal. Opts: (null)
+[   10.156557] VFS: Mounted root (ext2 filesystem) on device 254:1.
+[   10.174872] Freeing unused kernel memory: 180K (c05c7000 - c05f4000)
+[   10.755640] random: init urandom read with 3 bits of entropy available
+nvram_get_buf: time_zone
+sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Key: 4101203f
+nvram_init: Unable to touch Ralink PID file: /var/run/nvramd.pid!
+sem_get: Key: 410c0019
+nvram_set_default_builtin: Setting built-in default values!
+nvram_set: console_loglevel = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: restore_defaults = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sku_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wlanstate = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_if = "br0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ipaddr = "192.168.0.50"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_bipaddr = "192.168.0.255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone = "EST5EDT"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr_def = "01:23:45:67:89:ab"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifnames = "eth1 eth2 eth3 eth4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ethConver = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wanif = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone_x = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_multicast = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set_default: Loading built-in default values = 1!
+nvram_set_default: Checking for symbol "router_defaults"...
+nvram_set: os_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_version = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_date = "Apr  9 2013"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_version = "3.90.23.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: board_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: timer_interval = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_server = "192.5.41.40 192.5.41.41 133.100.9.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_update_interval = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_level = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ezc_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ezc_version = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: is_default = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: stats_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: console_loglevel = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: router_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ure_disable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_ifname = "eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifname = "br0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifnames = "vlan1 eth1 eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_hwnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ipaddr = "192.168.1.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_stp = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dlna_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tivo_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dlna_auto_ip = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_ip_backup = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_proto = "null"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_rip_enable = "null"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ifname = "br1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ifnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_hwnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_dhcp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ipaddr = "192.168.2.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_gateway = "192.168.2.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_stp = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifnames = "eth0 "
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: channel_mode = "Default"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wifi_test = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hostname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_ifname = "ppp0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_keepalive = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_mru = "1492"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_mtu = "1492"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_acname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_echo_interval = "30"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_max_echo_fail = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_session_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_server_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_mtu = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_wan_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_wan_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_ifname = "ppp1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_east_username = "guest@flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_east_passwd = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_west_username = "flets@flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_west_passwd = "flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_authtype = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_acname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_keepalive = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_sel = "fletdisable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_policy_num = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_mru = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_mtu = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_demand = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_dod = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_session_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_server_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_keyword = "flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_dns_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_schedule_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_schedule_config = "127:0:0:23:59"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_fw_bks_block_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_blk_srv_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_all_service_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_filter_rule_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_flag_Smin = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_flag_Emin = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keyword = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keywords = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_enable_temp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keywords_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_temp_type = "4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: runtest = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_ipaddr_old = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_desc = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_primary = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_unit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_mode = "manual"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_start = "192.168.1.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_end = "192.168.1.254"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_resrv_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_resrv_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_username = "admin"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_passwd = "password"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_wanport = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_lanport = "80"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dual_band = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_num = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev5 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev6 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev7 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev8 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev9 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev10 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev11 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev12 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev13 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev14 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev15 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev16 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev17 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev18 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev19 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev20 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev21 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev22 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev23 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev24 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev25 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev26 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev27 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev28 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev29 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev30 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev31 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev32 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev33 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev34 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev35 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev36 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev37 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev38 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev39 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev40 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev41 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev42 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev43 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev44 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev45 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev46 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev47 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev48 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev49 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev50 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev51 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev52 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev53 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev54 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev55 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev56 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev57 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev58 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev59 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev60 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev61 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev62 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev63 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac5 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac6 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac7 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac8 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac9 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac10 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac11 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac12 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac13 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac14 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac15 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac16 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac17 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac18 = ""
+[   11.021529] random: nonblocking pool is initialized
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac19 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac20 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac21 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac22 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac23 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac24 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac25 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac26 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac27 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac28 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac29 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac30 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac31 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac32 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac33 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac34 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac35 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac36 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac37 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac38 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac39 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac40 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac41 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac42 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac43 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac44 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac45 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac46 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac47 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac48 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac49 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac50 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac51 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac52 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac53 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac54 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac55 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac56 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac57 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac58 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac59 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac60 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac61 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac62 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac63 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_setting = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid = "NETGEAR-5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_band = "2.4G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid = "NETGEAR-5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_band = "5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_region = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_region = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_autochannel = "enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_channel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_channel = "44"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_mode = "145Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_mode = "HT80"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wlanstate = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wlanstate = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_txbf = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_channel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_channel = "36"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_mode = "145Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_mode = "300Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_enable = "enable_ap"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_broadcast = "ssid_24G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_broadcast = "ssid_5G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_broadcast = "ssid_5G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_preamble = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_preamble = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wme = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_onoff = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_onoff = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sche_tmp_set = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wifi_sche_off = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_conn_24hr = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_conn_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_en_secu_type = "WPA-AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wpa_gtk_rekey = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_secret = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_en_secu_type = "WPA-AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wpa_gtk_rekey = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_secret = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_2 = "NETGEAR-Guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_2 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_2 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_see_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_see_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_sec_profile_enable_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_sec_profile_enable_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_2 = "NETGEAR-5G-Guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type_2 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_secu_type_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type_2 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wmm_advert_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_bc_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid_bc_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_allow_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_allow_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_allow_see_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_allow_see_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_3 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_3 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_3 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_3 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_4 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_4 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_4 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_4 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ctf_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: acosnat_ctf_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ifname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_phytype = "n"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_level = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_pps = "10"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: NULL key or value!
+nvram_set: wl_rifs_advert = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_pps = "10"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_quiet_time = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txchain = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_stbc_tx = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_stbc_rx = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_stbc_rx = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dmatxctl = "0x24c0040"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dmarxctl = "0x4c0000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_pcie_mrrs = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_corerev = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_phytypes = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radioids = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country = "GB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country_code = "GB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bss_enabled = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country_rev = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_closed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wmf_bss_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mode = "ap"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_lazywds = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wds = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wds_timeout = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wep = "disabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_auth = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_maclist = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_macmode = "disabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_chanspec = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_reg_mode = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dfs_preism = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dfs_postism = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radarthrs = "0 0x6a8 0x6c8 0x6ac 0x6c7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_radarthrs = "1 0x6ac 0x6dc 0x6bc 0x6ec 0x6ac 0x6dc 0x6bc 0x6ec "
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mrate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rateset = "12"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dtim = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bcn = "100"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bcn_rotate = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_plcphdr = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_gmode = "GMODE_AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_gmode_protection = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mcast_regen_bss_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_afterburner = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_frameburst = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_bss_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_antdiv = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_infra = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bw_cap = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nband = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmcsidx = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmode = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmode_protection = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nreqd = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_vlan_prio_mode = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_leddc = "0x640000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxstreams = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txstreams = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu_rtylimit_tid = "5 5 5 5 5 5 5 5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu_rr_rtylimit_tid = "2 2 2 2 2 2 2 2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mimo_preamble = "mm"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_tpc_db = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_amsdu = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rifs = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_auth_mode = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wpa_psk = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wpa_gtk_rekey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_key = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_crypto = "tkip"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_net_reauth = "36000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_akm = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pktc_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_version2 = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_mode = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mode = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_5g_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_wps_oob = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_device_pin = "12345670"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_modelname = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mfstring = "NETGEAR, Inc."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_device_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_reg = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_sta_pin = "00000000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_modelnum = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_config_method = "0x2688"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_timeout_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_addER = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_uuid = "0x000102030405060708090A0B0C0D0EBB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lock_start_cnt = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lock_forever_cnt = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wsc_pin_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lan_led = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown_forceon = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_ifname = "all"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dome_led_status = "ON"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_be = "15 1023 3 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_bk = "15 1023 7 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_vi = "7 15 2 6016 3008 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_vo = "3 7 2 3264 1504 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_be = "15 63 3 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_bk = "15 1023 7 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_vi = "7 15 1 6016 3008 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_vo = "3 7 1 3264 1504 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_no_ack = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_apsd = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_be = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_bk = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_vi = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_vo = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_maxassoc = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bss_maxassoc = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_unit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_sta_retry_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_uffp_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_rtport_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: restore_defaults = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_timeout = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmenable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmport = "8443"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmstartip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmendip = "255.255.255.255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_turn_on = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_advert_period = "30"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_advert_ttl = "4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_portmap_entry = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_duration = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_DHCPServerConfigurable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: blank_state = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_wiz = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wiz_pppoe_wait_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wiz_dhcp_wait_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: system_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_serv_ip = "10.0.0.138"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_user_ip = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_idletime = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_conn_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_gateway = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_ip_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_server = "login-server"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_server_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_idletime = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_status = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_debug_level = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_minheartbeat = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_maxheartbeat = "20"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_localport = "5050"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_test = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: logo_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_filter_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_dir = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_version = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_multicast = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_hostname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_wildcard = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_update_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_checked = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_last_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_timeout = "1200"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: inbound_policy_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: inbound_record = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: port_tr_conf = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_count = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keyword = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keywords = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_enable_temp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keywords_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip_temp = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: schedule_config = "127:0:0:23:59"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_mtu = "1500"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dmz_ipaddr = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_dmz_ip4 = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_dmz_enab = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_spi_enab = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_rsp_ping = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_bks_block_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: blk_srv_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: all_service_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_alert = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_smtp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_addr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_pid = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: schedule_daylightadjust = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_config_file = "fileinfo.txt"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_stringtable_dat = "stringtable.dat"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr1 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr2 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr3 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_username = "anonymous"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_password = "WNR3500U@"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: super_username = "Gearguy"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: super_passwd = "Geardog"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: parser_username = "Gearpar"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: parser_passwd = "Gearucp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tftp_serv_ipaddr = "192.168.1.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potValue = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potMaxValue = "4320"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potInterval = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: nat_inbound_filtering = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: iptv_enabled = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: iptv_interfaces = "0x00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: boot_wait = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_setup_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: friendly_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pf_services_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_mode = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_ptp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_ptp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_pmp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_pmp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_mode = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_ptp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_ptp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_pmp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_pmp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_wds_setup_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_any_usb_dev = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_http_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_http_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_ftp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_http_port = "443"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_port = "21"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_pasv_port_start = "30001"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_pasv_port_end = "30050"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_disk_max_part = "15"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_umount = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_shareport = "21"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_group_name = "Workgroup"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_host_name = "readyshare"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_mount_signal = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_rule_count = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_port = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_uplink = "256000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_3 = "1000000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_0 = "128000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_set_sel = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_l7_apps = "5:3 6:3 3:0 2:0 4:0 1:0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_control_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_volume_ctrl_dir = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_volume_monthly_limit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_round_up_volume = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_cntime_monthly_limit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_hour = "00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_min = "00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_ampm = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_day = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_watermark = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_led_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_block_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_warning_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_warning_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_switch = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_sip_enab = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ParentalControl = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ParentalCtrl_MAC_ID_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_type = "WW"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sel_region = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: single_firmware_en = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_region = "English"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_region2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_en = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_en_ver = "1.0.1.72_2.1.17.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en_ver = "1.0.1.72_2.1.17.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en_tag = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_default_check = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_gui_str_tbl = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: supported_languages = "English"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: browser_language = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: brs_lang_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_config_file_dir = "stringtables"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_config_file_name = "stringtable.txt"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_ftp_svr = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localnetmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localgateway = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_pppoe_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_user_netmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_pptp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: igmp_proxying_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ru_igmp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_proto = "disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_sla_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_MinRtrAdvInterval = "198"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_MaxRtrAdvInterval = "600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvCurHopLimit = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvManagedFlag = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvOtherConfigFlag = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvDefaultLifetime = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvReachableTime = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvRetransTimer = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvDefaultPreference = "low"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvOnLink = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvAutonomous = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvValidLifetime = "2400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvPreferredLifetime = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvLinkMTU = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_lifetime = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_pref = "255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_wan_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_lan_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_wan_length = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_lan_length = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pri_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_sec_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_auto_type = "DHCP/Auto Config"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_interfaceid_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_interface_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_relay = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_router = "192.88.99.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_system_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_domain_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6ready = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_mld = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_system_name_auto = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_domain_name_auto = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_obsolete_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_obsolete_ipaddr_length = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_new_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_new_ipaddr_length = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_serv_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_ip = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_idle_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_gateway_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_netmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_l2tp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_ip_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_conn_id = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_filter = "65535"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_sync_time = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: access_mac_record = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: media_name = "ReadyDLNA: R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: content_scan = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: success_page_hijack = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: basic_setting = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Internet_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Wireless_Radio_state = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Wireless_Security_state = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_AttachedDevices_num = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_GuestNetwork_enable = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_GuestNetwork_sec_profile = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pause_wan_lan_conflict = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: show_firmware_info = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: LangTagChinese = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: autoBlock = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_password_recovery = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_question1 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_answer1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_question2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_answer2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: timestamp_of_last_recovery = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: activeuser_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: need_to_load_wireless = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: new_firmware_available = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: as_genie = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_ap_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ap_dyn_ip = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ap_dyn_dns = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: apmode_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: apmode_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wlg_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: last_auto_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_sta_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_psr_mrpt = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_other_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bridge_interface = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mixedmode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_channel_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_mode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mixedmode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_channel_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_mode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: chg_from_bridge = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: performance_boost = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: mevent_ifnames = "eth1 eth2 wl0.1 wl1.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: acs_ifnames = "eth1 eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_file_system = "ntfs"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_obss_coex = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_bfr_cap = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_bfe_cap = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_timer = "25"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set_default: Loading from native built-in table: router_defaults (0x26360) = 1!
+nvram_set_default: Checking for symbol "Nvrams"...
+nvram_set_default_image: Copying overrides from defaults folder!
+sem_get: Key: 410c0019
+[   13.272144] cfg80211: Calling CRDA to update world regulatory domain
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_get_buf: = "0"
+[   13.909225] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00001600
+[   13.909225] 
+[   13.909481] CPU: 0 PID: 1 Comm: init Tainted: G        W       4.1.17+ #1
+[   13.909616] Hardware name: Generic DT based system
+[   13.909782] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[   13.909958] [<c0019d30>] (show_stack) from [<c0410b78>] (panic+0x70/0x1c8)
+[   13.910118] [<c0410b78>] (panic) from [<c0025714>] (do_exit+0x3c0/0x774)
+[   13.910313] [<c0025714>] (do_exit) from [<c0026718>] (do_group_exit+0x0/0xa8)
+[   13.910478] [<c0026718>] (do_group_exit) from [<c0016d00>] (ret_fast_syscall+0x0/0x3c)
+[   13.910844] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00001600
+[   13.910844] 
+Starting firmware emulation... use Ctrl-a + x to exit
+qemu-system-arm: terminating on signal 2 from pid 176581 (timeout)
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000158] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000300] Switching to timer-based delay loop, resolution 16ns
+[    0.003394] Console: colour dummy device 80x30
+[    0.003781] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.003913] pid_max: default: 32768 minimum: 301
+[    0.004823] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.004864] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.015305] CPU: Testing write buffer coherency: ok
+[    0.021683] Setting up static identity map for 0x40008240 - 0x40008298
+[    0.182952] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.195343] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.204947] NET: Registered protocol family 16
+[    0.208373] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.212566] cpuidle: using governor ladder
+[    0.212725] cpuidle: using governor menu
+[    0.903553] Serial: AMBA PL011 UART driver
+[    0.905789] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    0.914299] console [ttyS0] enabled
+[    0.937276] vgaarb: loaded
+[    0.938801] SCSI subsystem initialized
+[    0.940035] usbcore: registered new interface driver usbfs
+[    0.940401] usbcore: registered new interface driver hub
+[    0.940720] usbcore: registered new device driver usb
+[    0.949893] cfg80211: Calling CRDA to update world regulatory domain
+[    0.952193] Switched to clocksource arch_sys_counter
+[    0.970158] NET: Registered protocol family 2
+[    1.032584] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    1.032901] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    1.033214] TCP: Hash tables configured (established 2048 bind 2048)
+[    1.033767] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    1.034020] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    1.035500] NET: Registered protocol family 1
+[    1.035986] PCI: CLS 0 bytes, default 64
+[    1.043415] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    1.046225] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    1.051898] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.053019] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    1.053818] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[    1.062823] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    1.063150] io scheduler noop registered
+[    1.063389] io scheduler cfq registered (default)
+[    1.064142] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 0
+[    1.065449] ------------[ cut here ]------------
+[    1.065664] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/fs/sysfs/dir.c:31 sysfs_warn_dup+0x50/0x6c()
+[    1.065930] sysfs: cannot create duplicate filename '/class/gpio'
+[    1.066096] Modules linked in:
+[    1.066415] CPU: 0 PID: 1 Comm: swapper Not tainted 4.1.17+ #1
+[    1.066560] Hardware name: Generic DT based system
+[    1.067250] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    1.067606] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    1.067817] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    1.068060] [<c0024b08>] (warn_slowpath_fmt) from [<c00e363c>] (sysfs_warn_dup+0x50/0x6c)
+[    1.068247] [<c00e363c>] (sysfs_warn_dup) from [<c00e3714>] (sysfs_create_dir_ns+0x74/0x84)
+[    1.068436] [<c00e3714>] (sysfs_create_dir_ns) from [<c018e6ac>] (kobject_add_internal+0xb8/0x2ac)
+[    1.068634] [<c018e6ac>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    1.068821] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    1.069004] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    1.069185] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    1.069374] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    1.069587] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    1.069767] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    1.069962] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    1.070138] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    1.070392] ---[ end trace 1e65fc7efe753a7b ]---
+[    1.070590] ------------[ cut here ]------------
+[    1.070708] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/lib/kobject.c:240 kobject_add_internal+0x240/0x2ac()
+[    1.070937] kobject_add_internal failed for gpio with -EEXIST, don't try to register things with the same name in the same directory.
+[    1.071160] Modules linked in:
+[    1.071301] CPU: 0 PID: 1 Comm: swapper Tainted: G        W       4.1.17+ #1
+[    1.071470] Hardware name: Generic DT based system
+[    1.071637] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    1.071810] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    1.072123] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    1.072337] [<c0024b08>] (warn_slowpath_fmt) from [<c018e834>] (kobject_add_internal+0x240/0x2ac)
+[    1.072539] [<c018e834>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    1.072720] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    1.072898] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    1.073078] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    1.073267] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    1.073446] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    1.073621] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    1.073807] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    1.073978] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    1.074153] ---[ end trace 1e65fc7efe753a7c ]---
+[    1.074333] firmadyne: Cannot create device class: gpio!
+[    1.076092] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    1.076276] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    1.166233] PCI host bridge /pcie@10000000 ranges:
+[    1.166814]    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    1.167182]   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    1.167316]   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    1.168134] pci-host-generic 3f000000.pcie: resource collision: [mem 0x00000000-0xffffffff] conflicts with /pl011@9000000 [mem 0x09000000-0x09000fff]
+[    1.168860] pci-host-generic: probe of 3f000000.pcie failed with error -16
+[    1.181061] Non-volatile memory driver v1.3
+[    2.376756] brd: module loaded
+[    2.389596] loop: module loaded
+[    3.395245]  vda: vda1
+[    3.407679] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    3.408315] Intel/Sharp Extended Query Table at 0x0031
+[    3.409485] Using buffer write method
+[    3.409910] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    3.417616] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    3.417854] Intel/Sharp Extended Query Table at 0x0031
+[    3.418600] Using buffer write method
+[    3.418720] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    3.418928] Concatenating MTD devices:
+[    3.419039] (0): "0.flash"
+[    3.419118] (1): "0.flash"
+[    3.419188] into device "0.flash"
+[    3.431318] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.431570] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.431755] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.432400] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.432593] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.432774] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    3.433232] nand: device found, Manufacturer ID: 0x98, Chip ID: 0x39
+[    3.433390] nand: Toshiba NAND 128MiB 1,8V 8-bit
+[    3.433518] nand: 128 MiB, SLC, erase size: 16 KiB, page size: 512, OOB size: 16
+[    3.434422] flash size: 128 MiB
+[    3.434510] page size: 512 bytes
+[    3.434587] OOB area size: 16 bytes
+[    3.434669] sector size: 16 KiB
+[    3.434742] pages number: 262144
+[    3.434817] pages per sector: 32
+[    3.434892] bus width: 8
+[    3.434957] bits in sector size: 14
+[    3.435037] bits in page size: 9
+[    3.435129] bits in OOB size: 4
+[    3.435250] flash size with OOB: 135168 KiB
+[    3.435368] page address bytes: 4
+[    3.435463] sector address bytes: 3
+[    3.435544] options: 0x42
+[    4.062020] Scanning device for bad blocks
+[    4.190381] cfg80211: Calling CRDA to update world regulatory domain
+[    4.192323] firmadyne: do_execve: /firmadyne/console
+[    4.192625] OFFSETS: offset of pid: 0x190 offset of comm: 0x270
+[    4.193361] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    4.193996] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    4.197907] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    4.200821] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    4.203800] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    4.205265] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    4.206652] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    4.208227] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    4.209850] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    4.211209] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    4.212920] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    4.214324] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    4.220233] tun: Universal TUN/TAP device driver, 1.6
+[    4.220387] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    6.306140] PPP generic driver version 2.4.2
+[    6.306969] PPP BSD Compression module registered
+[    6.307157] PPP Deflate Compression module registered
+[    6.307409] PPP MPPE Compression module registered
+[    6.307628] NET: Registered protocol family 24
+[    6.307968] PPTP driver version 0.8.5
+[    7.353808] cfg80211: Calling CRDA to update world regulatory domain
+[    7.354918] usbcore: registered new interface driver usb-storage
+[    7.358552] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    7.359324] hidraw: raw HID events driver (C) Jiri Kosina
+[    7.359951] usbcore: registered new interface driver usbhid
+[    7.360088] usbhid: USB HID core driver
+[    7.360589] Netfilter messages via NETLINK v0.30.
+[    7.361265] nf_conntrack version 0.5.0 (3958 buckets, 15832 max)
+[    7.362914] ctnetlink v0.93: registering with nfnetlink.
+[    7.364502] ipip: IPv4 over IPv4 tunneling driver
+[    7.366713] gre: GRE over IPv4 demultiplexor driver
+[    7.366882] ip_gre: GRE over IPv4 tunneling driver
+[    7.371653] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    7.373498] arp_tables: (C) 2002 David S. Miller
+[    7.374581] Initializing XFRM netlink socket
+[    7.375106] NET: Registered protocol family 10
+[    7.382539] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    7.384359] sit: IPv6 over IPv4 tunneling driver
+[    7.388160] NET: Registered protocol family 17
+[    7.388827] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[    7.389181] Bridge firewalling registered
+[    7.389331] Ebtables v2.0 registered
+[    7.390533] 8021q: 802.1Q VLAN Support v1.8
+[    7.391189] Registering SWP/SWPB emulation handler
+[    7.394170] rtc-pl031 9010000.pl031: setting system clock to 2018-07-19 15:39:09 UTC (1532014749)
+[    8.325354] EXT4-fs (vda1): couldn't mount as ext3 due to feature incompatibilities
+[    8.327863] EXT4-fs (vda1): mounting ext2 file system using the ext4 subsystem
+[    8.337171] EXT4-fs (vda1): warning: mounting unchecked fs, running e2fsck is recommended
+[    8.340083] EXT4-fs (vda1): mounted filesystem without journal. Opts: (null)
+[    8.341186] VFS: Mounted root (ext2 filesystem) on device 254:1.
+[    8.359834] Freeing unused kernel memory: 180K (c05c7000 - c05f4000)
+[    8.783758] random: init urandom read with 3 bits of entropy available
+nvram_get_buf: time_zone
+sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Key: 4101203f
+nvram_init: Unable to touch Ralink PID file: /var/run/nvramd.pid!
+sem_get: Key: 410c0019
+nvram_set_default_builtin: Setting built-in default values!
+nvram_set: console_loglevel = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: restore_defaults = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sku_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wlanstate = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_if = "br0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ipaddr = "192.168.0.50"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_bipaddr = "192.168.0.255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone = "EST5EDT"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr_def = "01:23:45:67:89:ab"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifnames = "eth1 eth2 eth3 eth4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ethConver = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wanif = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone_x = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_multicast = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set_default: Loading built-in default values = 1!
+nvram_set_default: Checking for symbol "router_defaults"...
+nvram_set: os_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_version = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_date = "Apr  9 2013"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_version = "3.90.23.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: board_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: timer_interval = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_server = "192.5.41.40 192.5.41.41 133.100.9.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_update_interval = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: time_zone = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_level = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ezc_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ezc_version = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: is_default = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: os_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: stats_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: console_loglevel = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: router_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ure_disable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_ifname = "eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifname = "br0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ifnames = "vlan1 eth1 eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_hwnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_ipaddr = "192.168.1.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_stp = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dlna_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tivo_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dlna_auto_ip = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_ip_backup = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_proto = "null"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_lan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_rip_enable = "null"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ifname = "br1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ifnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_hwnames = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_dhcp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_ipaddr = "192.168.2.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_netmask = "255.255.255.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_gateway = "192.168.2.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_stp = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan1_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ifnames = "eth0 "
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: channel_mode = "Default"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wifi_test = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_proto = "dhcp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hostname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_lease = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_ifname = "ppp0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_keepalive = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_mru = "1492"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_mtu = "1492"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_acname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_echo_interval = "30"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_max_echo_fail = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_session_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_server_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_mtu = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_tmp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_wan_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_wan_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_ifname = "ppp1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_east_username = "guest@flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_east_passwd = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_west_username = "flets@flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_west_passwd = "flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_username = "guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_authtype = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_acname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_idletime = "300"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_keepalive = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_sel = "fletdisable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_policy_num = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_mru = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_mtu = "1454"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_demand = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_dod = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_session_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_server_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_flet_keyword = "flets"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_dns_server = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_schedule_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_schedule_config = "127:0:0:23:59"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_fw_bks_block_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_blk_srv_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_all_service_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_filter_rule_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_flag_Smin = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_flag_Emin = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keyword = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keywords = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_enable_temp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_bs_keywords_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_tmp3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe2_temp_type = "4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: runtest = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_ipaddr = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_netmask = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_ipaddr_old = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan2_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_desc = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_route = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_primary = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_unit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_mode = "manual"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_start = "192.168.1.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_end = "192.168.1.254"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_domain = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_wins = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_resrv_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dhcp_resrv_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_username = "admin"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_passwd = "password"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_wanport = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_lanport = "80"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dual_band = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_num = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev5 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev6 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev7 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev8 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev9 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev10 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev11 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev12 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev13 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev14 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev15 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev16 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev17 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev18 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev19 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev20 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev21 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev22 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev23 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev24 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev25 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev26 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev27 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev28 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev29 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev30 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev31 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev32 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev33 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev34 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev35 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev36 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev37 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev38 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev39 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev40 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev41 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev42 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev43 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev44 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev45 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev46 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev47 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev48 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev49 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev50 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev51 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev52 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev53 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev54 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev55 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev56 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev57 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev58 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev59 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev60 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev61 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev62 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_dev63 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac5 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac6 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac7 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac8 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac9 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac10 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac11 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac12 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac13 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac14 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac15 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac16 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac17 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac18 = "[    9.080784] random: nonblocking pool is initialized
+"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac19 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac20 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac21 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac22 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac23 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac24 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac25 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac26 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac27 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac28 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac29 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac30 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac31 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac32 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac33 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac34 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac35 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac36 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac37 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac38 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac39 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac40 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac41 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac42 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac43 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac44 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac45 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac46 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac47 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac48 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac49 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac50 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac51 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac52 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac53 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac54 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac55 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac56 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac57 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac58 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac59 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac60 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac61 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac62 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlan_acl_mac63 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_setting = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid = "NETGEAR-5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_band = "2.4G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid = "NETGEAR-5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_band = "5G"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_region = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_region = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_autochannel = "enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_channel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_channel = "44"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_mode = "145Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_mode = "HT80"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wlanstate = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wlanstate = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_txbf = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_channel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_channel = "36"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_mode = "145Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_mode = "300Mbps"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_enable = "enable_ap"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_broadcast = "ssid_24G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_broadcast = "ssid_5G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_broadcast = "ssid_5G_bc"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_secu_type = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_defaKey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_passphrase = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_preamble = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_preamble = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wme = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_onoff = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_onoff = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sche_tmp_set = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wifi_sche_off = "Enable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_conn_24hr = "Disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_conn_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_en_secu_type = "WPA-AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wpa_gtk_rekey = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_secret = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_radius_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_en_secu_type = "WPA-AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wpa_gtk_rekey = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_secret = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_radius_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_2 = "NETGEAR-Guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_2 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_2 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_see_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_see_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_sec_profile_enable_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_sec_profile_enable_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_2 = "NETGEAR-5G-Guest"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type_2 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_secu_type_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type_2 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wmm_advert_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_bc_2 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_ssid_bc_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_allow_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_allow_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_allow_see_access_2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_temp_allow_see_access_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_3 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_3 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_3 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_3 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_3 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_sec_profile_enable_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_sec_profile_enable_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_4 = "None"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_secu_type_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_4 = "automatic"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wmm_advert_4 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_bc_4 = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_ssid_bc_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_allow_access_4 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_temp_allow_access_4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ctf_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: acosnat_ctf_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ifname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_hwaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_phytype = "n"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_level = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio_pwrsave_pps = "10"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: NULL key or value!
+nvram_set: wl_rifs_advert = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_pps = "10"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain_pwrsave_quiet_time = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxchain = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txchain = "7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_stbc_tx = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_stbc_rx = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_stbc_rx = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dmatxctl = "0x24c0040"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dmarxctl = "0x4c0000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_pcie_mrrs = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_corerev = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_phytypes = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radioids = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ssid = "NETGEAR"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country = "GB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country_code = "GB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bss_enabled = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_country_rev = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radio = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_closed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ap_isolate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wmf_bss_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mode = "ap"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_lazywds = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wds = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wds_timeout = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wep = "disabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_auth = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_key4 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_maclist = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_macmode = "disabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_chanspec = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_reg_mode = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dfs_preism = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dfs_postism = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radarthrs = "0 0x6a8 0x6c8 0x6ac 0x6c7"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_radarthrs = "1 0x6ac 0x6dc 0x6bc 0x6ec 0x6ac 0x6dc 0x6bc 0x6ec "
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mrate = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rateset = "12"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_frag = "2346"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rts = "2347"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_dtim = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bcn = "100"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bcn_rotate = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_plcphdr = "long"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_gmode = "GMODE_AUTO"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_gmode_protection = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mcast_regen_bss_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_afterburner = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_frameburst = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_bss_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_antdiv = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_infra = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bw_cap = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nband = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmcsidx = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmode = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nmode_protection = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_nreqd = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_vlan_prio_mode = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_leddc = "0x640000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rxstreams = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txstreams = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu_rtylimit_tid = "5 5 5 5 5 5 5 5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_ampdu_rr_rtylimit_tid = "2 2 2 2 2 2 2 2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_mimo_preamble = "mm"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_tpc_db = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_amsdu = "auto"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_rifs = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_auth_mode = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wpa_psk = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wpa_gtk_rekey = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_key = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_radius_port = "1812"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_crypto = "tkip"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_net_reauth = "36000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_akm = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pktc_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_version2 = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_mode = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mode = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_5g_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_wps_oob = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_device_pin = "12345670"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_modelname = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mfstring = "NETGEAR, Inc."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_device_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wps_reg = "enabled"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_sta_pin = "00000000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_modelnum = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_config_method = "0x2688"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_timeout_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_addER = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_uuid = "0x000102030405060708090A0B0C0D0EBB"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lock_start_cnt = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lock_forever_cnt = "3"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wsc_pin_disable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_wps_config_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_lan_led = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_aplockdown_forceon = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_ifname = "all"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dome_led_status = "ON"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_be = "15 1023 3 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_bk = "15 1023 7 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_vi = "7 15 2 6016 3008 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_sta_vo = "3 7 2 3264 1504 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_be = "15 63 3 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_bk = "15 1023 7 0 0 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_vi = "7 15 1 6016 3008 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_ap_vo = "3 7 1 3264 1504 off off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_no_ack = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_apsd = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_be = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_bk = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_vi = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_wme_txp_vo = "7 3 4 2 0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_maxassoc = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_bss_maxassoc = "128"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_unit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_sta_retry_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_uffp_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_rtport_entry = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: emf_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: restore_defaults = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+[   10.502097] cfg80211: Calling CRDA to update world regulatory domain
+nvram_set: http_timeout = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmenable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmport = "8443"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmstartip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: http_rmendip = "255.255.255.255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_turn_on = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_advert_period = "30"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_advert_ttl = "4"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_portmap_entry = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_duration = "3600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: upnp_DHCPServerConfigurable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_hwaddr2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: blank_state = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_wiz = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wiz_pppoe_wait_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wiz_dhcp_wait_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: system_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_serv_ip = "10.0.0.138"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_user_ip = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_idletime = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_conn_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_gateway = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_ip_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_server = "login-server"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_server_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_idletime = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_status = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_debug_level = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_minheartbeat = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_maxheartbeat = "20"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_bpa_localport = "5050"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_test = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: logo_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_filter_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_dir = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_version = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: rip_multicast = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_hostname = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_wildcard = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_update_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_checked = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ddns_last_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_timeout = "1200"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: inbound_policy_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: inbound_record = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: port_tr_conf = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fwpt_count = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keyword = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keywords = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_enable_temp = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_keywords_temp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bs_trustedip_temp = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: schedule_config = "127:0:0:23:59"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wan_mtu = "1500"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: dmz_ipaddr = "192.168.1.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_dmz_ip4 = "2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_dmz_enab = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bpa_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_spi_enab = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_rsp_ping = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_bks_block_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: blk_srv_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: all_service_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_alert = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_smtp = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_email_addr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_email_pid = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: schedule_daylightadjust = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_config_file = "fileinfo.txt"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_stringtable_dat = "stringtable.dat"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr1 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr2 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_svr3 = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_username = "anonymous"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_check_ftp_password = "WNR3500U@"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: super_username = "Gearguy"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: super_passwd = "Geardog"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: parser_username = "Gearpar"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: parser_passwd = "Gearucp"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tftp_serv_ipaddr = "192.168.1.2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potValue = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potMaxValue = "4320"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: potInterval = "60"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: nat_inbound_filtering = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: iptv_enabled = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: iptv_interfaces = "0x00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: boot_wait = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_setup_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: friendly_name = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pf_services_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_mode = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_ptp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_ptp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_pmp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wds_pmp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_mode = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_ptp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_ptp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_pmp_mac = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wds_pmp_sta = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lanip_wds_setup_changed = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_any_usb_dev = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_http_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_http_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_ftp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_http_port = "443"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_port = "21"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_pasv_port_start = "30001"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_wan_ftp_pasv_port_end = "30050"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_disk_max_part = "15"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_umount = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_shareport = "21"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_group_name = "Workgroup"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: smb_host_name = "readyshare"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_mount_signal = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_rule_count = "-1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_port = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_uplink = "256000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_3 = "1000000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_3 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_min_0 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_max_0 = "128000"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_bw_set_sel = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: qos_l7_apps = "5:3 6:3 3:0 2:0 4:0 1:0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_control_type = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_volume_ctrl_dir = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_volume_monthly_limit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_round_up_volume = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_cntime_monthly_limit = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_hour = "00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_min = "00"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_ampm = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_restart_day = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_watermark = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_led_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_block_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_warning_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: traffic_warning_time = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_switch = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: fw_sip_enab = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ParentalControl = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ParentalCtrl_MAC_ID_tbl = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ver_type = "WW"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: sel_region = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: single_firmware_en = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: auto_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_region = "English"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_region2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_en = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_en_ver = "1.0.1.72_2.1.17.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en_ver = "1.0.1.72_2.1.17.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_non_en_tag = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: str_tbl_default_check = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_gui_str_tbl = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: supported_languages = "English"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: browser_language = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: brs_lang_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_check_enable = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_config_file_dir = "stringtables"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_config_file_name = "stringtable.txt"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lang_check_ftp_svr = "updates1.netgear.com"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localnetmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pppoe_localgateway = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_pppoe_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pptp_user_netmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_pptp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: igmp_proxying_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ru_igmp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_proto = "disable"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_sla_id = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_MinRtrAdvInterval = "198"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_MaxRtrAdvInterval = "600"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvCurHopLimit = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvManagedFlag = "off"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvOtherConfigFlag = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvDefaultLifetime = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvReachableTime = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvRetransTimer = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvDefaultPreference = "low"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvOnLink = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvAutonomous = "on"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvValidLifetime = "2400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvPreferredLifetime = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: RA_AdvLinkMTU = "1800"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_lifetime = "86400"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: lan_dhcpsv6_pref = "255"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_wan_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_lan_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_wan_length = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_lan_length = "64"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pri_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_sec_dns = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_auto_type = "DHCP/Auto Config"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_interfaceid_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_interface_id = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_relay = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_6to4_router = "192.88.99.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_system_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_domain_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_username = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_pppoe_servicename = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6ready = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: run_mld = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_system_name_auto = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ipv6_domain_name_auto = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_obsolete_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_obsolete_ipaddr_length = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_new_ipaddr = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: radvd_lan_new_ipaddr_length = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_name = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_passwd = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_serv_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_ip = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_dod = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_idle_time = "5"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_gateway_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_user_netmask = "..."
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: static_l2tp_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_ip_sel = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_localip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: l2tp_conn_id = "R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: log_filter = "65535"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ntp_sync_time = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: access_mac_record = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: media_name = "ReadyDLNA: R6300v2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: content_scan = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: success_page_hijack = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: basic_setting = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Internet_state = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Wireless_Radio_state = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_Wireless_Security_state = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_AttachedDevices_num = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_GuestNetwork_enable = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: gui_GuestNetwork_sec_profile = "none"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: pause_wan_lan_conflict = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: show_firmware_info = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: LangTagChinese = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: autoBlock = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_password_recovery = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_question1 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_answer1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_question2 = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: password_answer2 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: timestamp_of_last_recovery = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: activeuser_ip = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: need_to_load_wireless = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: new_firmware_available = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: as_genie = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_ap_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ap_dyn_ip = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: ap_dyn_dns = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: apmode_gateway = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: apmode_dns1 = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_repeater = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wla_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: tmp_wlg_wds_enable = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: last_auto_ip = "0.0.0.0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_sta_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl1_psr_mrpt = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: enable_other_mode = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: bridge_interface = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_ssid_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_secu_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_wep_length_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key1_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key2_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key3_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_key4_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_defaKey_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_auth_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mixedmode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_passphrase_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_channel_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wla_mode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_ssid_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_secu_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_wep_length_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key1_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key2_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key3_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_key4_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_defaKey_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_auth_type_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wps_mixedmode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_passphrase_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_channel_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wlg_mode_backup = ""
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: chg_from_bridge = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: performance_boost = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: mevent_ifnames = "eth1 eth2 wl0.1 wl1.1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: acs_ifnames = "eth1 eth2"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: usb_file_system = "ntfs"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl0_obss_coex = "1"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_bfr_cap = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_bfe_cap = "0"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set: wl_txbf_timer = "25"
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_set_default: Loading from native built-in table: router_defaults (0x26360) = 1!
+nvram_set_default: Checking for symbol "Nvrams"...
+nvram_set_default_image: Copying overrides from defaults folder!
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+sem_get: Key: 410c0019
+nvram_get_buf: = "0"
+[   11.802255] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00001600
+[   11.802255] 
+[   11.802560] CPU: 0 PID: 1 Comm: init Tainted: G        W       4.1.17+ #1
+[   11.802720] Hardware name: Generic DT based system
+[   11.802885] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[   11.803084] [<c0019d30>] (show_stack) from [<c0410b78>] (panic+0x70/0x1c8)
+[   11.803321] [<c0410b78>] (panic) from [<c0025714>] (do_exit+0x3c0/0x774)
+[   11.803550] [<c0025714>] (do_exit) from [<c0026718>] (do_group_exit+0x0/0xa8)
+[   11.803732] [<c0026718>] (do_group_exit) from [<c0016d00>] (ret_fast_syscall+0x0/0x3c)
+[   11.804140] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00001600
+[   11.804140] 

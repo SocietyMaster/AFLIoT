@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# libraries path
+export LD_LIBRARY_PATH=/userdisk/fuzz/libraries
+
+# patched timeout, will exit fuzz-instance when timeout
+# export AFL_DAEMON_TIMEOUT=1000000
+
+# client mode, timeout for forwarding to the daemon
+# export AFL_FORWARD_TIMEOUT=1000
+
+# enable debug for client mode
+# export AFL_DAEMON_DEBUG=1
+
+# enable debug for desock mode
+# export DESOCK_DEBUG=1
+
+# desock mode which port to capture, do this manually
+# export DESOCK_PORT=9091
+
+# stupid check for AFL_SHM_ENV string, but it is in the libaflinit.so
+export AFL_SKIP_BIN_CHECK=1
+
+# afl catch up
+export AFL_NO_AFFINITY=1
+
+# afl setup
+echo core >/proc/sys/kernel/core_pattern
+
+./afl-fuzz -m none $@

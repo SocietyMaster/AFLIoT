@@ -1,0 +1,560 @@
+>> Database Image ID: 64
+
+/home/zhumengfan/firmware/firmwares/3d9a2b1e0683bed0123b2e8fcfec8ebc79eaac42.ZIP
+>> MD5: 951f4aa7379e61dec71d69d421019d10
+>> Tag: 64
+>> Temp: /tmp/tmpaFHqOP
+>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+>>>> Zip archive data, at least v2.0 to extract, compressed size: 6202071, uncompressed size: 6229984, name: dgs121048_fw_202A005.hex
+>> Recursing into archive ...
+	
+/tmp/tmpaFHqOP/_3d9a2b1e0683bed0123b2e8fcfec8ebc79eaac42.ZIP.extracted/dgs121048_fw_202A005.hex
+	>> MD5: 79647794d70ec629b29dcf25b4dd277b
+	>> Tag: 64
+	>> Temp: /tmp/tmpFxDbwN
+	>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+	>>>> Squashfs filesystem, little endian, version 3.1, size: 5049304 bytes, 221 inodes, blocksize: 131072 bytes, created: 2012-05-03 04:37:13
+	>>>> Found Linux filesystem in /tmp/tmpFxDbwN/_dgs121048_fw_202A005.hex.extracted/squashfs-root!
+	>> Skipping: completed!
+	>> Cleaning up /tmp/tmpFxDbwN...
+>> Skipping: completed!
+>> Cleaning up /tmp/tmpaFHqOP...
+./bin/busybox: armel
+Querying database for architecture... armel
+----Running----
+----Copying Filesystem Tarball----
+----Creating QEMU Image----
+Formatting '/home/zhumengfan/firmadyne//scratch//64//image.raw', fmt=raw size=1073741824
+----Creating Partition Table----
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0x0bc77fc8.
+
+Command (m for help): Created a new DOS disklabel with disk identifier 0x6ee1c690.
+
+Command (m for help): Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): Partition number (1-4, default 1): First sector (2048-2097151, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (2048-2097151, default 2097151): 
+Created a new partition 1 of type 'Linux' and of size 1023 MiB.
+
+Command (m for help): The partition table has been altered.
+Syncing disks.
+
+----Mounting QEMU Image----
+add map loop0p1 (252:0): 0 2095104 linear 7:0 2048
+----Creating Filesystem----
+mke2fs 1.42.13 (17-May-2015)
+Discarding device blocks:   4096/261888             done                            
+Creating filesystem with 261888 4k blocks and 65536 inodes
+Filesystem UUID: 4b68acd8-ff80-42a4-b486-068628297b5d
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Writing superblocks and filesystem accounting information: 0/8   done
+
+----Making QEMU Image Mountpoint----
+----Mounting QEMU Image Partition 1----
+----Extracting Filesystem Tarball----
+----Creating FIRMADYNE Directories----
+----Patching Filesystem (chroot)----
+Creating /etc/TZ!
+Creating /etc/hosts!
+Warning: Recreating device nodes!
+mkdir: can't create directory '/dev/mtd': No such file or directory
+mknod: /dev/mtd/0: No such file or directory
+mknod: /dev/mtd/1: No such file or directory
+mknod: /dev/mtd/2: No such file or directory
+mknod: /dev/mtd/3: No such file or directory
+mknod: /dev/mtd/4: No such file or directory
+mknod: /dev/mtd/5: No such file or directory
+mknod: /dev/mtd/6: No such file or directory
+mknod: /dev/mtd/7: No such file or directory
+mknod: /dev/mtd/8: No such file or directory
+mknod: /dev/mtd/9: No such file or directory
+mknod: /dev/mtd/10: No such file or directory
+Removing /etc/scripts/sys_resetbutton!
+----Setting up FIRMADYNE----
+----Unmounting QEMU Image----
+loop deleted : /dev/loop0
+Querying database for architecture... armel
+Running firmware 64: terminating after 60 secs...
+qemu-system-arm: terminating on signal 2 from pid 93844 (timeout)
+Inferring network...
+Interfaces: []
+Done!
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: firmadyne.syscall=1 root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000162] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000306] Switching to timer-based delay loop, resolution 16ns
+[    0.003458] Console: colour dummy device 80x30
+[    0.003802] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.003939] pid_max: default: 32768 minimum: 301
+[    0.004854] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.004892] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.015560] CPU: Testing write buffer coherency: ok
+[    1.938037] Setting up static identity map for 0x40008240 - 0x40008298
+[    1.953296] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    1.965491] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    3.496739] NET: Registered protocol family 16
+[    3.500088] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    3.504519] cpuidle: using governor ladder
+[    3.504684] cpuidle: using governor menu
+[    3.525827] Serial: AMBA PL011 UART driver
+[    3.528101] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    3.535994] console [ttyS0] enabled
+[    3.559071] vgaarb: loaded
+[    3.560647] SCSI subsystem initialized
+[    3.561727] usbcore: registered new interface driver usbfs
+[    3.562088] usbcore: registered new interface driver hub
+[    3.562425] usbcore: registered new device driver usb
+[    9.264881] cfg80211: Calling CRDA to update world regulatory domain
+[    9.267408] Switched to clocksource arch_sys_counter
+[    9.283951] NET: Registered protocol family 2
+[    9.290380] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    9.290653] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    9.290963] TCP: Hash tables configured (established 2048 bind 2048)
+[    9.291509] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    9.291775] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    9.293261] NET: Registered protocol family 1
+[    9.293722] PCI: CLS 0 bytes, default 64
+[    9.301597] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    9.306050] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    9.316088] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    9.318799] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    9.320239] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[   13.812908] cfg80211: Calling CRDA to update world regulatory domain
+[   13.817764] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[   13.818095] io scheduler noop registered
+[   13.818334] io scheduler cfq registered (default)
+[   13.819045] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
+[   13.820450] ------------[ cut here ]------------
+[   13.820658] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/fs/sysfs/dir.c:31 sysfs_warn_dup+0x50/0x6c()
+[   13.820895] sysfs: cannot create duplicate filename '/class/gpio'
+[   13.821059] Modules linked in:
+[   13.821386] CPU: 0 PID: 1 Comm: swapper Not tainted 4.1.17+ #1
+[   13.821538] Hardware name: Generic DT based system
+[   13.822243] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[   13.822525] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[   13.822728] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[   13.822968] [<c0024b08>] (warn_slowpath_fmt) from [<c00e363c>] (sysfs_warn_dup+0x50/0x6c)
+[   13.823179] [<c00e363c>] (sysfs_warn_dup) from [<c00e3714>] (sysfs_create_dir_ns+0x74/0x84)
+[   13.823366] [<c00e3714>] (sysfs_create_dir_ns) from [<c018e6ac>] (kobject_add_internal+0xb8/0x2ac)
+[   13.823569] [<c018e6ac>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[   13.823777] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[   13.823970] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[   13.824140] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[   13.824341] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[   13.824574] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[   13.824758] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[   13.824977] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[   13.825149] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[   13.825420] ---[ end trace 9c02494375b650fe ]---
+[   13.825646] ------------[ cut here ]------------
+[   13.825757] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/lib/kobject.c:240 kobject_add_internal+0x240/0x2ac()
+[   13.825975] kobject_add_internal failed for gpio with -EEXIST, don't try to register things with the same name in the same directory.
+[   13.826207] Modules linked in:
+[   13.826348] CPU: 0 PID: 1 Comm: swapper Tainted: G        W       4.1.17+ #1
+[   13.826488] Hardware name: Generic DT based system
+[   13.826609] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[   13.826776] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[   13.827136] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[   13.827333] [<c0024b08>] (warn_slowpath_fmt) from [<c018e834>] (kobject_add_internal+0x240/0x2ac)
+[   13.827528] [<c018e834>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[   13.827734] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[   13.827907] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[   13.828080] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[   13.828263] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[   13.828438] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[   13.828609] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[   13.828789] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[   13.828955] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[   13.829125] ---[ end trace 9c02494375b650ff ]---
+[   13.829296] firmadyne: Cannot create device class: gpio!
+[   13.831056] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[   13.831236] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[   13.911571] PCI host bridge /pcie@10000000 ranges:
+[   13.912158]    IO 0x3eff0000..0x3effffff -> 0x00000000
+[   13.912528]   MEM 0x10000000..0x3efeffff -> 0x10000000
+[   13.912661]   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[   13.913335] pci-host-generic 3f000000.pcie: resource collision: [mem 0x00000000-0xffffffff] conflicts with /pl011@9000000 [mem 0x09000000-0x09000fff]
+[   13.914047] pci-host-generic: probe of 3f000000.pcie failed with error -16
+[   13.925791] Non-volatile memory driver v1.3
+[   18.567251] cfg80211: Calling CRDA to update world regulatory domain
+[   18.587561] brd: module loaded
+[   18.598788] loop: module loaded
+[   24.092655] cfg80211: Calling CRDA to update world regulatory domain
+[   24.097166]  vda: vda1
+[   24.947102] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[   24.947801] Intel/Sharp Extended Query Table at 0x0031
+[   24.948985] Using buffer write method
+[   24.950642] erase region 0: offset=0x0,size=0x40000,blocks=256
+[   24.958267] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[   24.958504] Intel/Sharp Extended Query Table at 0x0031
+[   24.959270] Using buffer write method
+[   24.959385] erase region 0: offset=0x0,size=0x40000,blocks=256
+[   24.959581] Concatenating MTD devices:
+[   24.959701] (0): "0.flash"
+[   24.959775] (1): "0.flash"
+[   24.959842] into device "0.flash"
+[   24.971109] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.971330] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.971511] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.971695] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.971871] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.972046] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[   24.972470] nand: device found, Manufacturer ID: 0x98, Chip ID: 0x39
+[   24.972623] nand: Toshiba NAND 128MiB 1,8V 8-bit
+[   24.972747] nand: 128 MiB, SLC, erase size: 16 KiB, page size: 512, OOB size: 16
+[   24.973652] flash size: 128 MiB
+[   24.973757] page size: 512 bytes
+[   24.973835] OOB area size: 16 bytes
+[   24.973916] sector size: 16 KiB
+[   24.974007] pages number: 262144
+[   24.974079] pages per sector: 32
+[   24.974149] bus width: 8
+[   24.974209] bits in sector size: 14
+[   24.974284] bits in page size: 9
+[   24.974359] bits in OOB size: 4
+[   24.974433] flash size with OOB: 135168 KiB
+[   24.974524] page address bytes: 4
+[   24.974614] sector address bytes: 3
+[   24.974693] options: 0x42
+[   25.427853] Scanning device for bad blocks
+[   25.537924] firmadyne: do_execve: /firmadyne/console
+[   25.538155] OFFSETS: offset of pid: 0x190 offset of comm: 0x270
+[   25.538637] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[   25.539056] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[   25.541270] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[   25.542684] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[   25.544084] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[   25.545546] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[   25.547035] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[   25.548550] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[   25.550207] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[   25.551505] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[   25.552833] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[   25.554184] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[   25.559814] tun: Universal TUN/TAP device driver, 1.6
+[   25.559945] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[   36.500882] PPP generic driver version 2.4.2
+[   36.501736] PPP BSD Compression module registered
+[   36.501910] PPP Deflate Compression module registered
+[   36.502182] PPP MPPE Compression module registered
+[   36.502324] NET: Registered protocol family 24
+[   36.502665] PPTP driver version 0.8.5
+[   36.503539] cfg80211: Calling CRDA to update world regulatory domain
+Starting firmware emulation... use Ctrl-a + x to exit
+qemu-system-arm: terminating on signal 2 from pid 93995 (timeout)
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31 firmadyne.syscall=0
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000188] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000323] Switching to timer-based delay loop, resolution 16ns
+[    0.003576] Console: colour dummy device 80x30
+[    0.003933] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.004068] pid_max: default: 32768 minimum: 301
+[    0.005057] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.005098] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.014913] CPU: Testing write buffer coherency: ok
+[    0.021578] Setting up static identity map for 0x40008240 - 0x40008298
+[    0.037226] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.177827] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.187330] NET: Registered protocol family 16
+[    0.190798] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.195043] cpuidle: using governor ladder
+[    0.195204] cpuidle: using governor menu
+[    0.216660] Serial: AMBA PL011 UART driver
+[    0.235778] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    0.243338] console [ttyS0] enabled
+[    0.267207] vgaarb: loaded
+[    0.268890] SCSI subsystem initialized
+[    0.270034] usbcore: registered new interface driver usbfs
+[    0.270417] usbcore: registered new interface driver hub
+[    0.270796] usbcore: registered new device driver usb
+[    0.280485] cfg80211: Calling CRDA to update world regulatory domain
+[    0.282909] Switched to clocksource arch_sys_counter
+[    0.301633] NET: Registered protocol family 2
+[    0.307197] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.307463] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.307785] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.308346] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.308572] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.310045] NET: Registered protocol family 1
+[    0.310501] PCI: CLS 0 bytes, default 64
+[    0.441115] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    0.444251] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    0.450091] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.451159] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.451955] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[    0.461604] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.461988] io scheduler noop registered
+[    0.462230] io scheduler cfq registered (default)
+[    0.463079] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 0
+[    0.464496] ------------[ cut here ]------------
+[    0.464708] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/fs/sysfs/dir.c:31 sysfs_warn_dup+0x50/0x6c()
+[    0.464932] sysfs: cannot create duplicate filename '/class/gpio'
+[    0.465091] Modules linked in:
+[    0.465401] CPU: 0 PID: 1 Comm: swapper Not tainted 4.1.17+ #1
+[    0.465560] Hardware name: Generic DT based system
+[    0.466298] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    0.466619] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    0.466818] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    0.467050] [<c0024b08>] (warn_slowpath_fmt) from [<c00e363c>] (sysfs_warn_dup+0x50/0x6c)
+[    0.467228] [<c00e363c>] (sysfs_warn_dup) from [<c00e3714>] (sysfs_create_dir_ns+0x74/0x84)
+[    0.467408] [<c00e3714>] (sysfs_create_dir_ns) from [<c018e6ac>] (kobject_add_internal+0xb8/0x2ac)
+[    0.467594] [<c018e6ac>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    0.467770] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    0.467944] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    0.468115] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    0.468296] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    0.468501] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    0.468672] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    0.468856] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    0.469023] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    0.469287] ---[ end trace 39f3c390ce244418 ]---
+[    0.469483] ------------[ cut here ]------------
+[    0.469594] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/lib/kobject.c:240 kobject_add_internal+0x240/0x2ac()
+[    0.469844] kobject_add_internal failed for gpio with -EEXIST, don't try to register things with the same name in the same directory.
+[    0.470055] Modules linked in:
+[    0.470213] CPU: 0 PID: 1 Comm: swapper Tainted: G        W       4.1.17+ #1
+[    0.470343] Hardware name: Generic DT based system
+[    0.470476] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    0.470648] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    0.470819] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    0.470997] [<c0024b08>] (warn_slowpath_fmt) from [<c018e834>] (kobject_add_internal+0x240/0x2ac)
+[    0.471207] [<c018e834>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    0.471371] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    0.471552] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    0.471718] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    0.471896] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    0.472066] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    0.472265] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    0.472439] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    0.472777] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    0.472952] ---[ end trace 39f3c390ce244419 ]---
+[    0.473135] firmadyne: Cannot create device class: gpio!
+[    0.474936] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    0.475113] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    0.557599] PCI host bridge /pcie@10000000 ranges:
+[    0.558173]    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    0.558531]   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    0.558668]   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    0.559348] pci-host-generic 3f000000.pcie: resource collision: [mem 0x00000000-0xffffffff] conflicts with /pl011@9000000 [mem 0x09000000-0x09000fff]
+[    0.560051] pci-host-generic: probe of 3f000000.pcie failed with error -16
+[    0.571649] Non-volatile memory driver v1.3
+[    0.834360] brd: module loaded
+[    0.844795] loop: module loaded
+[    0.875738]  vda: vda1
+[    0.888490] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    0.889193] Intel/Sharp Extended Query Table at 0x0031
+[    0.890379] Using buffer write method
+[    0.890822] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    0.898832] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    0.899091] Intel/Sharp Extended Query Table at 0x0031
+[    0.899857] Using buffer write method
+[    0.899975] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    0.900189] Concatenating MTD devices:
+[    0.900293] (0): "0.flash"
+[    0.900366] (1): "0.flash"
+[    0.900432] into device "0.flash"
+[    0.914093] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.914369] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.914544] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.914732] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.914902] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.915071] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.915494] nand: device found, Manufacturer ID: 0x98, Chip ID: 0x39
+[    0.915639] nand: Toshiba NAND 128MiB 1,8V 8-bit
+[    0.915760] nand: 128 MiB, SLC, erase size: 16 KiB, page size: 512, OOB size: 16
+[    0.916668] flash size: 128 MiB
+[    0.916753] page size: 512 bytes
+[    0.916826] OOB area size: 16 bytes
+[    0.916906] sector size: 16 KiB
+[    0.916978] pages number: 262144
+[    0.917048] pages per sector: 32
+[    0.917119] bus width: 8
+[    0.917179] bits in sector size: 14
+[    0.917255] bits in page size: 9
+[    0.917329] bits in OOB size: 4
+[    0.917406] flash size with OOB: 135168 KiB
+[    0.917494] page address bytes: 4
+[    0.917567] sector address bytes: 3
+[    0.917646] options: 0x42
+[    1.163554] Scanning device for bad blocks
+[    1.277959] firmadyne: do_execve: /firmadyne/console
+[    1.278196] OFFSETS: offset of pid: 0x190 offset of comm: 0x270
+[    1.278668] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    1.279095] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    1.281447] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    1.283126] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    1.284544] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    1.286037] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    1.287416] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    1.288850] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    1.290472] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    1.291850] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    1.293386] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    1.294803] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    1.300407] tun: Universal TUN/TAP device driver, 1.6
+[    1.300544] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    2.357108] PPP generic driver version 2.4.2
+[    2.357928] PPP BSD Compression module registered
+[    2.358128] PPP Deflate Compression module registered
+[    2.358352] PPP MPPE Compression module registered
+[    2.358495] NET: Registered protocol family 24
+[    2.358862] PPTP driver version 0.8.5
+[    2.682380] usbcore: registered new interface driver usb-storage
+[    2.761979] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    2.762952] hidraw: raw HID events driver (C) Jiri Kosina
+[    2.763544] usbcore: registered new interface driver usbhid
+[    2.763686] usbhid: USB HID core driver
+[    2.764198] Netfilter messages via NETLINK v0.30.
+[    2.764864] nf_conntrack version 0.5.0 (3958 buckets, 15832 max)
+[    2.766338] ctnetlink v0.93: registering with nfnetlink.
+[    2.767858] ipip: IPv4 over IPv4 tunneling driver
+[    2.770049] gre: GRE over IPv4 demultiplexor driver
+[    2.770222] ip_gre: GRE over IPv4 tunneling driver
+[    2.775103] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    2.776866] arp_tables: (C) 2002 David S. Miller
+[    2.777954] Initializing XFRM netlink socket
+[    2.778491] NET: Registered protocol family 10
+[    2.786221] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    2.788057] sit: IPv6 over IPv4 tunneling driver
+[    2.791996] NET: Registered protocol family 17
+[    2.792832] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[    2.793197] Bridge firewalling registered
+[    2.793329] Ebtables v2.0 registered
+[    2.794560] 8021q: 802.1Q VLAN Support v1.8
+[    2.795250] Registering SWP/SWPB emulation handler
+[    2.798232] rtc-pl031 9010000.pl031: setting system clock to 2018-07-19 10:37:44 UTC (1531996664)
+[    2.809335] EXT4-fs (vda1): couldn't mount as ext3 due to feature incompatibilities
+[    2.810927] EXT4-fs (vda1): mounting ext2 file system using the ext4 subsystem
+[    3.248454] EXT4-fs (vda1): mounted filesystem without journal. Opts: (null)
+[    3.249596] VFS: Mounted root (ext2 filesystem) on device 254:1.
+[    3.268374] Freeing unused kernel memory: 180K (c05c7000 - c05f4000)
+[    3.760009] cfg80211: Calling CRDA to update world regulatory domain
+[    5.154062] firmadyne: sys_reboot[PID: 54 (init)]: magic1:fee1dead, magic2:28121969, cmd:0
+Using /lib/modules/mvKernelExt.ko
+insmod: kernel-module version mismatch
+	/lib/modules/mvKernelExt.ko was compiled for kernel version 
+	while this kernel is version 4.1.17+.
+Using /lib/modules/mvPpDrv.ko
+insmod: kernel-module version mismatch
+	/lib/modules/mvPpDrv.ko was compiled for kernel version 
+	while this kernel is version 4.1.17+.
+Fri May 23 14:32:00 UTC 2008
+[    8.561224] cfg80211: Calling CRDA to update world regulatory domain
+
+
+
+
+Linux MARVELL_LINUX 4.1.17+ #1 Thu Feb 18 01:05:21 UTC 2016
+
+
+Welcome to Embedded Linux
+           _  _
+          | ||_|
+          | | _ ____  _   _  _  _ 
+          | || |  _ \| | | |\ \/ /
+          | || | | | | |_| |/    \
+          |_||_|_| |_|\____|\_/\_/
+
+          On Marvell's ARM board
+
+For further information on the Marvell products check:
+http://www.marvell.com/
+
+toochain=gnueabi
+
+Enjoy!
+
+
+
+BusyBox v1.01 (2008.10.02-12:33+0000) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+/ # [   11.703442] cfg80211: Calling CRDA to update world regulatory domain
+[   14.853574] cfg80211: Calling CRDA to update world regulatory domain
+[   18.003858] cfg80211: Calling CRDA to update world regulatory domain
+[   21.154107] cfg80211: Calling CRDA to update world regulatory domain
+[   24.302950] cfg80211: Calling CRDA to update world regulatory domain
+[   27.455110] cfg80211: Calling CRDA to update world regulatory domain
+[   30.604355] cfg80211: Calling CRDA to update world regulatory domain
+[   33.753049] cfg80211: Calling CRDA to update world regulatory domain
+[   36.903692] cfg80211: Exceeded CRDA call max attempts. Not calling CRDA

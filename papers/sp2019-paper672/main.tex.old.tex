@@ -1,0 +1,147 @@
+%% Modified for NDSS 2016 on 2015/10/06
+%%
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:chen2016towards
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+\documentclass[10pt, conference]{IEEEtran}
+% Add the compsoc option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+\pagestyle{plain}
+
+\usepackage{url}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{subfigure}
+\usepackage{threeparttable}
+\usepackage{todonotes}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{color,colortbl}
+\usepackage{soul}
+\usepackage{stfloats}
+\usepackage{subfig}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage[margin=5pt]{caption}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash}m{#1}}
+\graphicspath{ {./figs/}}
+\lstset{breaklines}
+\hyphenation{op-tical net-works semi-conduc-tor}
+\lstset{
+keywordstyle=\bfseries\color{blue},
+stringstyle=\color{olive},
+basicstyle=\footnotesize\ttfamily,
+rulecolor=\color{black},
+numbers=left,
+extendedchars=false
+numberstyle=\tiny,
+commentstyle=\itshape\color{black},
+showstringspaces=false,
+frame=single,
+xleftmargin=1.5em,
+xrightmargin=1.5em,
+captionpos=b
+}
+
+\newcommand{\sysname}{\texttt{SYSNAME}\xspace}
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{\sysname : Fuzzing IoT Device's Firmwares with Binary Level Instrumentation}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{Anonymous Submission}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+\IEEEoverridecommandlockouts
+\makeatletter\def\@IEEEpubidpullup{9\baselineskip}\makeatother
+\IEEEpubid{\parbox{\columnwidth}{Permission to freely reproduce all or part
+    of this paper for noncommercial purposes is granted provided that
+    copies bear this notice and the full citation on the first
+    page. Reproduction for commercial purposes is strictly prohibited
+    without the prior written consent of the Internet Society, the
+    first-named author (for reproduction of an entire paper only), and
+    the author's employer if the paper was prepared within the scope
+    of employment.  \\
+    NDSS '19, 24-27 February 2019, San Diego, CA, USA\\
+    Copyright 2019 Internet Society, ISBN 1-xxxxxx-xx-x\\
+    http://dx.doi.org/10.14722/ndss.2019.xxxxx
+}
+\hspace{\columnsep}\makebox[\columnwidth]{}}
+
+
+% make the title area
+\maketitle
+
+\input{abstract}
+\input{intro}
+\input{background}
+\input{method}
+\input{impl}
+\input{limitation}
+\input{related}
+\input{conclusion}
+
+
+%\section*{Acknowledgment}
+%The authors would like to thank...
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+\end{document}
+
+

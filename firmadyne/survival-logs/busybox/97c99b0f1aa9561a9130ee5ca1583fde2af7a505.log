@@ -1,0 +1,968 @@
+>> Database Image ID: 48
+
+/home/zhumengfan/firmware/firmwares/97c99b0f1aa9561a9130ee5ca1583fde2af7a505.bin
+>> MD5: e819fefc8506aff4d44fad69bf7798d0
+>> Tag: 48
+>> Temp: /tmp/tmpkWL0xG
+>> Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True
+>>>> Squashfs filesystem, little endian, version 2.1, size: 1784333 bytes, 389 inodes, blocksize: 65536 bytes, created: 2007-04-27 07:22:39
+>>>> Found Linux filesystem in /tmp/tmpkWL0xG/_97c99b0f1aa9561a9130ee5ca1583fde2af7a505.bin.extracted/squashfs-root!
+>> Skipping: completed!
+>> Cleaning up /tmp/tmpkWL0xG...
+./bin/busybox: armel
+Querying database for architecture... armel
+----Running----
+----Copying Filesystem Tarball----
+----Creating QEMU Image----
+Formatting '/home/zhumengfan/firmadyne//scratch//48//image.raw', fmt=raw size=1073741824
+----Creating Partition Table----
+
+Welcome to fdisk (util-linux 2.27.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0xc2fbe9d4.
+
+Command (m for help): Created a new DOS disklabel with disk identifier 0xc95a9ae1.
+
+Command (m for help): Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): Partition number (1-4, default 1): First sector (2048-2097151, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (2048-2097151, default 2097151): 
+Created a new partition 1 of type 'Linux' and of size 1023 MiB.
+
+Command (m for help): The partition table has been altered.
+Syncing disks.
+
+----Mounting QEMU Image----
+add map loop0p1 (252:0): 0 2095104 linear 7:0 2048
+----Creating Filesystem----
+mke2fs 1.42.13 (17-May-2015)
+Discarding device blocks:   4096/261888             done                            
+Creating filesystem with 261888 4k blocks and 65536 inodes
+Filesystem UUID: a42aa322-7b2b-452a-a46d-b56859b484af
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376
+
+Allocating group tables: 0/8   done                            
+Writing inode tables: 0/8   done                            
+Writing superblocks and filesystem accounting information: 0/8   done
+
+----Making QEMU Image Mountpoint----
+----Mounting QEMU Image Partition 1----
+----Extracting Filesystem Tarball----
+----Creating FIRMADYNE Directories----
+----Patching Filesystem (chroot)----
+Creating /etc/TZ!
+Creating /etc/hosts!
+Creating /etc/passwd!
+Warning: Recreating device nodes!
+Removing /etc/scripts/sys_resetbutton!
+----Setting up FIRMADYNE----
+----Unmounting QEMU Image----
+loop deleted : /dev/loop0
+Querying database for architecture... armel
+Running firmware 48: terminating after 60 secs...
+qemu-system-arm: terminating on signal 2 from pid 85454 (timeout)
+Inferring network...
+Interfaces: [('br0', '192.168.2.1')]
+Done!
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.17+ (vagrant@vagrant-ubuntu-trusty-64) (gcc version 5.3.0 (GCC) ) #1 Thu Feb 18 01:05:21 UTC 2016
+[    0.000000] CPU: ARMv7 Processor [412fc0f1] revision 1 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Memory policy: Data cache writeback
+[    0.000000] On node 0 totalpages: 65536
+[    0.000000] free_area_init_node: node 0, pgdat c061dfe8, node_mem_map cfdf9000
+[    0.000000]   Normal zone: 512 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 65536 pages, LIFO batch:15
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv0.2 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] CPU: All CPU(s) started in SVC mode.
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: firmadyne.syscall=1 root=/dev/vda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1 user_debug=31
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 253340K/262144K available (4297K kernel code, 170K rwdata, 1584K rodata, 180K init, 148K bss, 8804K reserved, 0K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc05c67bc   (5882 kB)
+[    0.000000]       .init : 0xc05c7000 - 0xc05f4000   ( 180 kB)
+[    0.000000]       .data : 0xc05f4000 - 0xc061e840   ( 171 kB)
+[    0.000000]        .bss : 0xc0621000 - 0xc06462d4   ( 149 kB)
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] clocksource arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000161] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.000300] Switching to timer-based delay loop, resolution 16ns
+[    0.003412] Console: colour dummy device 80x30
+[    0.003715] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=625000)
+[    0.003837] pid_max: default: 32768 minimum: 301
+[    0.004800] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.004838] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.015693] CPU: Testing write buffer coherency: ok
+[    0.022198] Setting up static identity map for 0x40008240 - 0x40008298
+[    0.492220] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+[    0.504390] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.513668] NET: Registered protocol family 16
+[    0.517027] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.521199] cpuidle: using governor ladder
+[    0.521370] cpuidle: using governor menu
+[    2.148805] Serial: AMBA PL011 UART driver
+[    2.151397] 9000000.pl011: ttyS0 at MMIO 0x9000000 (irq = 54, base_baud = 0) is a PL011 rev1
+[    2.158828] console [ttyS0] enabled
+[    2.181982] vgaarb: loaded
+[    2.183579] SCSI subsystem initialized
+[    2.184660] usbcore: registered new interface driver usbfs
+[    2.185010] usbcore: registered new interface driver hub
+[    2.185368] usbcore: registered new device driver usb
+[    2.194893] cfg80211: Calling CRDA to update world regulatory domain
+[    2.197238] Switched to clocksource arch_sys_counter
+[    2.532950] NET: Registered protocol family 2
+[    2.538500] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    2.538767] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    2.539100] TCP: Hash tables configured (established 2048 bind 2048)
+[    2.539672] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    2.539957] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    2.541414] NET: Registered protocol family 1
+[    2.541868] PCI: CLS 0 bytes, default 64
+[    2.549276] NetWinder Floating Point Emulator V0.97 (extended precision)
+[    2.552047] futex hash table entries: 256 (order: -1, 3072 bytes)
+[    2.557727] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.559160] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    2.559948] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[    2.568741] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    2.569116] io scheduler noop registered
+[    2.569385] io scheduler cfq registered (default)
+[    2.570028] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
+[    2.571374] ------------[ cut here ]------------
+[    2.571566] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/fs/sysfs/dir.c:31 sysfs_warn_dup+0x50/0x6c()
+[    2.571761] sysfs: cannot create duplicate filename '/class/gpio'
+[    2.571916] Modules linked in:
+[    2.572253] CPU: 0 PID: 1 Comm: swapper Not tainted 4.1.17+ #1
+[    2.572415] Hardware name: Generic DT based system
+[    2.573072] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    2.573359] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    2.573592] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    2.573829] [<c0024b08>] (warn_slowpath_fmt) from [<c00e363c>] (sysfs_warn_dup+0x50/0x6c)
+[    2.574075] [<c00e363c>] (sysfs_warn_dup) from [<c00e3714>] (sysfs_create_dir_ns+0x74/0x84)
+[    2.574252] [<c00e3714>] (sysfs_create_dir_ns) from [<c018e6ac>] (kobject_add_internal+0xb8/0x2ac)
+[    2.574463] [<c018e6ac>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    2.574637] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    2.574784] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    2.574998] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    2.575178] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    2.575412] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    2.575569] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    2.575743] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    2.575901] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    2.576182] ---[ end trace b43d6512db366372 ]---
+[    2.576390] ------------[ cut here ]------------
+[    2.576495] WARNING: CPU: 0 PID: 1 at /home/vagrant/firmadyne-kernel/kernel-v4.1/lib/kobject.c:240 kobject_add_internal+0x240/0x2ac()
+[    2.576741] kobject_add_internal failed for gpio with -EEXIST, don't try to register things with the same name in the same directory.
+[    2.577146] Modules linked in:
+[    2.577310] CPU: 0 PID: 1 Comm: swapper Tainted: G        W       4.1.17+ #1
+[    2.577448] Hardware name: Generic DT based system
+[    2.577567] [<c001c99c>] (unwind_backtrace) from [<c0019d30>] (show_stack+0x10/0x14)
+[    2.577761] [<c0019d30>] (show_stack) from [<c0024ab4>] (warn_slowpath_common+0x80/0xa8)
+[    2.577960] [<c0024ab4>] (warn_slowpath_common) from [<c0024b08>] (warn_slowpath_fmt+0x2c/0x3c)
+[    2.578140] [<c0024b08>] (warn_slowpath_fmt) from [<c018e834>] (kobject_add_internal+0x240/0x2ac)
+[    2.578332] [<c018e834>] (kobject_add_internal) from [<c018e9a8>] (kset_register+0x1c/0x44)
+[    2.578517] [<c018e9a8>] (kset_register) from [<c02090b4>] (__class_register+0xa8/0x198)
+[    2.578691] [<c02090b4>] (__class_register) from [<c02091e4>] (__class_create+0x40/0x70)
+[    2.578880] [<c02091e4>] (__class_create) from [<c01adf68>] (register_devfs_stubs+0x314/0xbb4)
+[    2.579058] [<c01adf68>] (register_devfs_stubs) from [<c05d9b08>] (init_module+0x28/0xa4)
+[    2.579227] [<c05d9b08>] (init_module) from [<c0009670>] (do_one_initcall+0x104/0x1b4)
+[    2.579417] [<c0009670>] (do_one_initcall) from [<c05c7d08>] (kernel_init_freeable+0xf0/0x1b0)
+[    2.579578] [<c05c7d08>] (kernel_init_freeable) from [<c040f28c>] (kernel_init+0x8/0xe4)
+[    2.579738] [<c040f28c>] (kernel_init) from [<c0016da8>] (ret_from_fork+0x14/0x2c)
+[    2.579879] ---[ end trace b43d6512db366373 ]---
+[    2.580088] firmadyne: Cannot create device class: gpio!
+[    2.581913] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    2.582122] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    2.665202] PCI host bridge /pcie@10000000 ranges:
+[    2.665756]    IO 0x3eff0000..0x3effffff -> 0x00000000
+[    2.666142]   MEM 0x10000000..0x3efeffff -> 0x10000000
+[    2.666272]   MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    2.666965] pci-host-generic 3f000000.pcie: resource collision: [mem 0x00000000-0xffffffff] conflicts with /pl011@9000000 [mem 0x09000000-0x09000fff]
+[    2.667795] pci-host-generic: probe of 3f000000.pcie failed with error -16
+[    3.539981] Non-volatile memory driver v1.3
+[    3.933913] brd: module loaded
+[    3.944072] loop: module loaded
+[    4.002767]  vda: vda1
+[    4.014993] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    4.015657] Intel/Sharp Extended Query Table at 0x0031
+[    4.016824] Using buffer write method
+[    4.017469] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    4.025090] 0.flash: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[    4.025388] Intel/Sharp Extended Query Table at 0x0031
+[    4.026149] Using buffer write method
+[    4.026268] erase region 0: offset=0x0,size=0x40000,blocks=256
+[    4.026485] Concatenating MTD devices:
+[    4.026621] (0): "0.flash"
+[    4.026696] (1): "0.flash"
+[    4.026761] into device "0.flash"
+[    4.040143] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.040417] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.040699] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.040987] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.041191] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.041363] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    4.041796] nand: device found, Manufacturer ID: 0x98, Chip ID: 0x39
+[    4.041943] nand: Toshiba NAND 128MiB 1,8V 8-bit
+[    4.042065] nand: 128 MiB, SLC, erase size: 16 KiB, page size: 512, OOB size: 16
+[    4.042979] flash size: 128 MiB
+[    4.043067] page size: 512 bytes
+[    4.043141] OOB area size: 16 bytes
+[    4.043219] sector size: 16 KiB
+[    4.043290] pages number: 262144
+[    4.043375] pages per sector: 32
+[    4.043443] bus width: 8
+[    4.043499] bits in sector size: 14
+[    4.043571] bits in page size: 9
+[    4.043643] bits in OOB size: 4
+[    4.043715] flash size with OOB: 135168 KiB
+[    4.043802] page address bytes: 4
+[    4.043872] sector address bytes: 3
+[    4.043964] options: 0x42
+[    4.176767] Scanning device for bad blocks
+[    4.501583] firmadyne: do_execve: /firmadyne/console
+[    4.501781] OFFSETS: offset of pid: 0x190 offset of comm: 0x270
+[    4.502283] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    4.502714] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    4.505074] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    4.506879] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    4.508489] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    4.509847] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    4.511273] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    4.512676] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    4.514276] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    4.515562] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    4.516856] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    4.518462] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    4.524416] tun: Universal TUN/TAP device driver, 1.6
+[    4.524561] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    4.558318] PPP generic driver version 2.4.2
+[    4.559159] PPP BSD Compression module registered
+[    4.559355] PPP Deflate Compression module registered
+[    4.559561] PPP MPPE Compression module registered
+[    4.559679] NET: Registered protocol family 24
+[    4.560015] PPTP driver version 0.8.5
+[    4.574436] usbcore: registered new interface driver usb-storage
+[    4.578174] rtc-pl031 9010000.pl031: rtc core: registered pl031 as rtc0
+[    4.578927] hidraw: raw HID events driver (C) Jiri Kosina
+[    4.579488] usbcore: registered new interface driver usbhid
+[    4.579605] usbhid: USB HID core driver
+[    4.580070] Netfilter messages via NETLINK v0.30.
+[    4.580729] nf_conntrack version 0.5.0 (3958 buckets, 15832 max)
+[    4.582191] ctnetlink v0.93: registering with nfnetlink.
+[    4.583649] ipip: IPv4 over IPv4 tunneling driver
+[    4.585764] gre: GRE over IPv4 demultiplexor driver
+[    4.585984] ip_gre: GRE over IPv4 tunneling driver
+[    4.590932] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    4.592663] arp_tables: (C) 2002 David S. Miller
+[    4.593737] Initializing XFRM netlink socket
+[    4.594284] NET: Registered protocol family 10
+[    4.601566] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    4.603343] sit: IPv6 over IPv4 tunneling driver
+[    4.607543] NET: Registered protocol family 17
+[    4.608272] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[    4.608609] Bridge firewalling registered
+[    4.608739] Ebtables v2.0 registered
+[    4.610054] 8021q: 802.1Q VLAN Support v1.8
+[    4.610759] Registering SWP/SWPB emulation handler
+[    4.613654] rtc-pl031 9010000.pl031: setting system clock to 2018-07-19 10:09:11 UTC (1531994951)
+[    4.761421] EXT4-fs (vda1): couldn't mount as ext3 due to feature incompatibilities
+[    4.763571] EXT4-fs (vda1): mounting ext2 file system using the ext4 subsystem
+[    4.776065] EXT4-fs (vda1): mounted filesystem without journal. Opts: (null)
+[    4.777334] VFS: Mounted root (ext2 filesystem) on device 254:1.
+[    4.795982] Freeing unused kernel memory: 180K (c05c7000 - c05f4000)
+[    5.565003] cfg80211: Calling CRDA to update world regulatory domain
+insmod: fvmac.ko.o: no module by that name found
+insmod: fv_led.ko.o: no module by that name found
+insmod: fv_watch_dog.ko.o: no module by that name found
+#sysinit: [sysinit]
+[    7.146919] EXT4-fs (vda1): re-mounted. Opts: (null)
+
+
+BusyBox v1.1.0 (2007.01.19-13:35+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+
+# # Restore to default[    9.073760] cfg80211: Calling CRDA to update world regulatory domain
+insmod: reset_btn.o: no module by that name found
+no factory default number
+Done
+# update nvram with default list!
+# interfaces_init......
+[    9.555656] firmadyne: sys_socket[PID: 86 (ifconfig)]: family:2, type:2, protocol:0
+[    9.557316] firmadyne: __inet_insert_ifa[PID: 86 (ifconfig)]: device:lo ifa:0x0100007f
+[    9.692755] firmadyne: __inet_insert_ifa[PID: 86 (ifconfig)]: device:lo ifa:0x0100007f
+[    9.712633] firmadyne: sys_socket[PID: 87 (route)]: family:2, type:2, protocol:0
+/proc/GPIO11: cannot create
+/proc/GPIO11: cannot create
+Setting ra0 configuration....
+Bring up ra0 interface....
+insmod: kernel-module version mismatch
+	/lib/modules/rt2860ap.ko was compiled for kernel version 
+	while this kernel is version 4.1.17+.
+[    9.968012] firmadyne: sys_socket[PID: 96 (ifconfig)]: family:2, type:2, protocol:0
+SIOCGIFFLAGS: No such device
+[   10.009843] firmadyne: sys_socket[PID: 102 (brctl)]: family:2, type:1, protocol:0
+[   10.010724] firmadyne: sys_socket[PID: 102 (brctl)]: family:10, type:2, protocol:0
+interface ra0 does not exist!
+No need to change ra0 to Nintendo NDS capable
+No need to change ra0 to Nintendo NDS capable...Complete
+killall: rt2860apd: no process killed
+[   10.763323] firmadyne: sys_socket[PID: 58 (sysinit)]: family:2, type:2, protocol:0
+[   10.775091] random: rt2860apd urandom read with 8 bits of entropy available
+can't get macaddr of ra0
+[   11.542655] firmadyne: sys_socket[PID: 118 (brctl)]: family:2, type:1, protocol:0
+[   11.556514] firmadyne: sys_socket[PID: 119 (ifconfig)]: family:2, type:2, protocol:0
+[   11.563504] firmadyne: sys_socket[PID: 120 (ifconfig)]: family:2, type:2, protocol:0
+[   11.564035] firmadyne: __inet_insert_ifa[PID: 120 (ifconfig)]: device:eth1 ifa:0x00000000
+[   11.566648] 8021q: adding VLAN 0 to HW filter on device eth1
+[   11.575980] firmadyne: sys_socket[PID: 121 (brctl)]: family:2, type:1, protocol:0
+[   11.576370] firmadyne: sys_socket[PID: 121 (brctl)]: family:10, type:2, protocol:0
+[   11.577342] firmadyne: br_add_if[PID: 121 (brctl)]: br:br0 dev:eth1
+[   11.579622] device eth1 entered promiscuous mode
+[   11.597531] firmadyne: sys_socket[PID: 122 (ifconfig)]: family:2, type:2, protocol:0
+[   13.737192] cfg80211: Calling CRDA to update world regulatory domain
+SIOCSIFADDR: No such device
+SIOCGIFFLAGS: No such device
+[   13.788098] firmadyne: sys_socket[PID: 131 (brctl)]: family:2, type:1, protocol:0
+[   13.788407] firmadyne: sys_socket[PID: 131 (brctl)]: family:10, type:2, protocol:0
+interface ra0 does not exist!
+[   14.063670] firmadyne: sys_socket[PID: 136 (brctl)]: family:2, type:1, protocol:0
+[   14.079087] firmadyne: sys_socket[PID: 137 (brctl)]: family:2, type:1, protocol:0
+[   14.089379] firmadyne: sys_socket[PID: 140 (brctl)]: family:2, type:1, protocol:0
+set hello timer failed: Numerical result out of range
+[   14.102602] firmadyne: sys_socket[PID: 141 (brctl)]: family:2, type:1, protocol:0
+[   14.229058] firmadyne: sys_socket[PID: 142 (ifconfig)]: family:2, type:2, protocol:0
+[   14.229606] firmadyne: __inet_insert_ifa[PID: 142 (ifconfig)]: device:br0 ifa:0x0102a8c0
+[   14.230598] br0: port 1(eth1) entered listening state
+[   14.230856] br0: port 1(eth1) entered listening state
+[   14.231436] IPv6: ADDRCONF(NETDEV_UP): br0: link is not ready
+# lan services init......
+[   14.280163] firmadyne: sys_socket[PID: 148 (syslogd)]: family:1, type:2, protocol:0
+killall: rt2860apd: no process killed
+[   14.562834] firmadyne: sys_socket[PID: 160 (easytest)]: family:2, type:2, protocol:0
+[   14.563263] firmadyne: sys_setsockopt[PID: 160 (easytest)]: fd:0, level:1, optname:2
+[   14.563773] firmadyne: inet_bind[PID: 160 (easytest)]: proto:SOCK_DGRAM, port:14675
+[   14.564397] firmadyne: sys_setsockopt[PID: 160 (easytest)]: fd:0, level:0, optname:34
+[   14.564810] firmadyne: sys_setsockopt[PID: 160 (easytest)]: fd:0, level:0, optname:33
+[   14.565164] firmadyne: sys_setsockopt[PID: 160 (easytest)]: fd:0, level:0, optname:32
+[   14.565551] firmadyne: sys_setsockopt[PID: 160 (easytest)]: fd:0, level:0, optname:35
+[   14.575913] firmadyne: sys_socket[PID: 159 (easyconf)]: family:2, type:1, protocol:0
+[   14.576312] firmadyne: inet_bind[PID: 159 (easyconf)]: proto:SOCK_STREAM, port:10101
+[   14.707460] firmadyne: sys_socket[PID: 156 (udhcpd)]: family:2, type:3, protocol:255
+[   14.710963] firmadyne: sys_socket[PID: 156 (udhcpd)]: family:2, type:2, protocol:17
+[   14.711255] firmadyne: sys_setsockopt[PID: 156 (udhcpd)]: fd:5, level:1, optname:2
+[   14.711490] firmadyne: sys_setsockopt[PID: 156 (udhcpd)]: fd:5, level:1, optname:6
+[   14.711698] firmadyne: sys_setsockopt[PID: 156 (udhcpd)]: fd:5, level:1, optname:25
+[   14.712021] firmadyne: inet_bind[PID: 156 (udhcpd)]: proto:SOCK_DGRAM, port:67
+[   14.713583] firmadyne: inet_accept[PID: 159 (easyconf)]:
+route: resolving gw
+route: resolving gw
+route: resolving gw
+route: resolving gw
+route: resolving gw
+[   15.151941] firmadyne: sys_socket[PID: 171 (dnsmasq)]: family:2, type:2, protocol:0
+[   15.153282] firmadyne: sys_socket[PID: 171 (dnsmasq)]: family:2, type:2, protocol:0
+[   15.153512] firmadyne: sys_socket[PID: 171 (dnsmasq)]: family:2, type:1, protocol:0
+[   15.153825] firmadyne: sys_setsockopt[PID: 171 (dnsmasq)]: fd:3, level:1, optname:2
+[   15.154075] firmadyne: inet_bind[PID: 171 (dnsmasq)]: proto:SOCK_STREAM, port:53
+[   15.154529] firmadyne: sys_setsockopt[PID: 171 (dnsmasq)]: fd:0, level:1, optname:2
+[   15.154743] firmadyne: sys_setsockopt[PID: 171 (dnsmasq)]: fd:0, level:0, optname:8
+[   15.155082] firmadyne: inet_bind[PID: 171 (dnsmasq)]: proto:SOCK_DGRAM, port:53
+# wan_init......
+Set country code - No target country!!!
+coutry = us *
+coutry = uk 
+coutry = au 
+coutry = ca *
+coutry = sg 
+coutry = tw *
+coutry = cn 
+coutry = fr 
+coutry = de 
+coutry = it 
+coutry = du 
+coutry = jp 
+coutry = kr 
+[   15.182345] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:2, protocol:0
+[   15.183483] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:1, protocol:0
+[   15.186295] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:2, protocol:0
+[   15.186662] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:1, protocol:0
+[   15.187750] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:2, protocol:0
+[   15.188033] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:1, protocol:0
+[   15.188666] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:2, protocol:0
+[   15.188936] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:1, protocol:0
+[   15.189532] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:2, protocol:0
+[   15.189804] firmadyne: sys_socket[PID: 174 (dnsmasq)]: family:1, type:1, protocol:0
+[   15.255269] firmadyne: sys_socket[PID: 178 (ifconfig)]: family:2, type:2, protocol:0
+[   15.266386] firmadyne: sys_socket[PID: 179 (ifconfig)]: family:2, type:2, protocol:0
+[   15.267848] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   15.269008] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+saveCurrentChannel: not found
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   16.030259] firmadyne: sys_socket[PID: 190 (lld2d)]: family:17, type:3, protocol:55688
+[   16.031442] firmadyne: sys_socket[PID: 190 (lld2d)]: family:2, type:2, protocol:0
+/proc/GPIO0: cannot create
+[   16.067928] firmadyne: sys_socket[PID: 207 (arping)]: family:17, type:2, protocol:0
+[   16.069236] firmadyne: sys_socket[PID: 207 (arping)]: family:2, type:2, protocol:0
+[   16.069519] firmadyne: sys_setsockopt[PID: 207 (arping)]: fd:4, level:1, optname:25
+[   16.069767] firmadyne: sys_setsockopt[PID: 207 (arping)]: fd:4, level:1, optname:5
+[   16.093353] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   16.106954] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   16.177382] firmadyne: sys_socket[PID: 210 (ifconfig)]: family:2, type:2, protocol:0
+[   16.178586] firmadyne: __inet_insert_ifa[PID: 210 (ifconfig)]: device:eth0 ifa:0x00000000
+[   16.188005] 8021q: adding VLAN 0 to HW filter on device eth0
+[   16.226475] firmadyne: sys_socket[PID: 211 (udhcpc)]: family:2, type:3, protocol:255
+[   16.228297] br0: port 1(eth1) entered learning state
+[   16.254708] firmadyne: sys_socket[PID: 214 (ifconfig)]: family:2, type:2, protocol:0
+[   16.270746] firmadyne: sys_socket[PID: 215 (ifconfig)]: family:2, type:2, protocol:0
+[   16.271326] firmadyne: __inet_insert_ifa[PID: 215 (ifconfig)]: device:eth0 ifa:0x00000000
+[   16.272100] 8021q: adding VLAN 0 to HW filter on device eth0
+[   16.277429] firmadyne: sys_socket[PID: 211 (udhcpc)]: family:17, type:2, protocol:8
+[   16.280315] firmadyne: sys_socket[PID: 211 (udhcpc)]: family:17, type:2, protocol:8
+[   16.888128] cfg80211: Calling CRDA to update world regulatory domain
+[   17.106402] firmadyne: sys_socket[PID: 217 (arping)]: family:17, type:2, protocol:0
+[   17.108429] firmadyne: sys_socket[PID: 217 (arping)]: family:2, type:2, protocol:0
+[   17.108743] firmadyne: sys_setsockopt[PID: 217 (arping)]: fd:4, level:1, optname:25
+[   17.109191] firmadyne: sys_setsockopt[PID: 217 (arping)]: fd:4, level:1, optname:5
+[   17.222590] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   18.029379] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   18.030459] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+[   18.160496] firmadyne: sys_socket[PID: 232 (arping)]: family:17, type:2, protocol:0
+[   18.162062] firmadyne: sys_socket[PID: 232 (arping)]: family:2, type:2, protocol:0
+[   18.162311] firmadyne: sys_setsockopt[PID: 232 (arping)]: fd:4, level:1, optname:25
+[   18.162514] firmadyne: sys_setsockopt[PID: 232 (arping)]: fd:4, level:1, optname:5
+/proc/GPIO1: cannot create
+[   18.224556] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   18.227141] br0: topology change detected, propagating
+[   18.227567] br0: port 1(eth1) entered forwarding state
+[   18.228113] IPv6: ADDRCONF(NETDEV_CHANGE): br0: link becomes ready
+[   18.285172] firmadyne: sys_socket[PID: 211 (udhcpc)]: family:17, type:2, protocol:8
+[   19.180819] firmadyne: sys_socket[PID: 237 (arping)]: family:17, type:2, protocol:0
+[   19.182253] firmadyne: sys_socket[PID: 237 (arping)]: family:2, type:2, protocol:0
+[   19.182512] firmadyne: sys_setsockopt[PID: 237 (arping)]: fd:4, level:1, optname:25
+[   19.182715] firmadyne: sys_setsockopt[PID: 237 (arping)]: fd:4, level:1, optname:5
+[   19.226292] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+httpd : This is httpd...ssl_enabled is 0
+[   19.341200] firmadyne: sys_socket[PID: 152 (httpd)]: family:2, type:1, protocol:0
+[   19.341914] firmadyne: sys_setsockopt[PID: 152 (httpd)]: fd:3, level:1, optname:2
+[   19.342225] firmadyne: inet_bind[PID: 152 (httpd)]: proto:SOCK_STREAM, port:80
+[   19.345747] firmadyne: inet_accept[PID: 152 (httpd)]:
+[   20.037456] cfg80211: Calling CRDA to update world regulatory domain
+[   20.169416] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   20.170094] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+[   20.227904] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   20.231036] firmadyne: sys_socket[PID: 242 (arping)]: family:17, type:2, protocol:0
+[   20.232583] firmadyne: sys_socket[PID: 242 (arping)]: family:2, type:2, protocol:0
+[   20.232839] firmadyne: sys_setsockopt[PID: 242 (arping)]: fd:4, level:1, optname:25
+[   20.233070] firmadyne: sys_setsockopt[PID: 242 (arping)]: fd:4, level:1, optname:5
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+[   20.287318] firmadyne: sys_socket[PID: 211 (udhcpc)]: family:17, type:2, protocol:8
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   21.229686] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   21.258859] firmadyne: sys_socket[PID: 257 (arping)]: family:17, type:2, protocol:0
+[   21.260469] firmadyne: sys_socket[PID: 257 (arping)]: family:2, type:2, protocol:0
+[   21.260735] firmadyne: sys_setsockopt[PID: 257 (arping)]: fd:4, level:1, optname:25
+[   21.260945] firmadyne: sys_setsockopt[PID: 257 (arping)]: fd:4, level:1, optname:5
+[   22.231495] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   22.285440] firmadyne: sys_socket[PID: 259 (arping)]: family:17, type:2, protocol:0
+[   22.287248] firmadyne: sys_socket[PID: 259 (arping)]: family:2, type:2, protocol:0
+[   22.287508] firmadyne: sys_setsockopt[PID: 259 (arping)]: fd:4, level:1, optname:25
+[   22.287712] firmadyne: sys_setsockopt[PID: 259 (arping)]: fd:4, level:1, optname:5
+[   22.309455] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   22.310170] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   22.310964] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:2, protocol:0
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   23.187316] cfg80211: Calling CRDA to update world regulatory domain
+[   23.233291] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   23.299830] firmadyne: sys_socket[PID: 281 (arping)]: family:17, type:2, protocol:0
+[   23.301254] firmadyne: sys_socket[PID: 281 (arping)]: family:2, type:2, protocol:0
+[   23.301530] firmadyne: sys_setsockopt[PID: 281 (arping)]: fd:4, level:1, optname:25
+[   23.301794] firmadyne: sys_setsockopt[PID: 281 (arping)]: fd:4, level:1, optname:5
+[   24.235206] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   24.318354] firmadyne: sys_socket[PID: 283 (arping)]: family:17, type:2, protocol:0
+[   24.320048] firmadyne: sys_socket[PID: 283 (arping)]: family:2, type:2, protocol:0
+[   24.320321] firmadyne: sys_setsockopt[PID: 283 (arping)]: fd:4, level:1, optname:25
+[   24.320528] firmadyne: sys_setsockopt[PID: 283 (arping)]: fd:4, level:1, optname:5
+[   24.446215] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   24.446909] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   25.237102] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   25.344487] firmadyne: sys_socket[PID: 301 (arping)]: family:17, type:2, protocol:0
+[   25.346099] firmadyne: sys_socket[PID: 301 (arping)]: family:2, type:2, protocol:0
+[   25.346344] firmadyne: sys_setsockopt[PID: 301 (arping)]: fd:4, level:1, optname:25
+[   25.346545] firmadyne: sys_setsockopt[PID: 301 (arping)]: fd:4, level:1, optname:5
+[   26.239283] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   26.337371] cfg80211: Calling CRDA to update world regulatory domain
+[   26.370542] firmadyne: sys_socket[PID: 303 (arping)]: family:17, type:2, protocol:0
+[   26.372216] firmadyne: sys_socket[PID: 303 (arping)]: family:2, type:2, protocol:0
+[   26.372460] firmadyne: sys_setsockopt[PID: 303 (arping)]: fd:4, level:1, optname:25
+[   26.372662] firmadyne: sys_setsockopt[PID: 303 (arping)]: fd:4, level:1, optname:5
+[   26.539823] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   26.540677] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   27.241983] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   27.389422] firmadyne: sys_socket[PID: 321 (arping)]: family:17, type:2, protocol:0
+[   27.391003] firmadyne: sys_socket[PID: 321 (arping)]: family:2, type:2, protocol:0
+[   27.391250] firmadyne: sys_setsockopt[PID: 321 (arping)]: fd:4, level:1, optname:25
+[   27.391451] firmadyne: sys_setsockopt[PID: 321 (arping)]: fd:4, level:1, optname:5
+[   28.243789] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   28.414022] firmadyne: sys_socket[PID: 323 (arping)]: family:17, type:2, protocol:0
+[   28.415541] firmadyne: sys_socket[PID: 323 (arping)]: family:2, type:2, protocol:0
+[   28.415783] firmadyne: sys_setsockopt[PID: 323 (arping)]: fd:4, level:1, optname:25
+[   28.415983] firmadyne: sys_setsockopt[PID: 323 (arping)]: fd:4, level:1, optname:5
+[   28.627141] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   28.627800] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   29.245546] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   29.452065] firmadyne: sys_socket[PID: 341 (arping)]: family:17, type:2, protocol:0
+[   29.454412] firmadyne: sys_socket[PID: 341 (arping)]: family:2, type:2, protocol:0
+[   29.454780] firmadyne: sys_setsockopt[PID: 341 (arping)]: fd:4, level:1, optname:25
+[   29.457376] firmadyne: sys_setsockopt[PID: 341 (arping)]: fd:4, level:1, optname:5
+[   29.487371] cfg80211: Calling CRDA to update world regulatory domain
+[   30.247229] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   30.470847] firmadyne: sys_socket[PID: 343 (arping)]: family:17, type:2, protocol:0
+[   30.471433] firmadyne: sys_socket[PID: 343 (arping)]: family:2, type:2, protocol:0
+[   30.471655] firmadyne: sys_setsockopt[PID: 343 (arping)]: fd:4, level:1, optname:25
+[   30.471846] firmadyne: sys_setsockopt[PID: 343 (arping)]: fd:4, level:1, optname:5
+[   30.728976] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   30.729629] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   30.730278] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:2, protocol:0
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   31.249219] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   31.483096] firmadyne: sys_socket[PID: 365 (arping)]: family:17, type:2, protocol:0
+[   31.484682] firmadyne: sys_socket[PID: 365 (arping)]: family:2, type:2, protocol:0
+[   31.485005] firmadyne: sys_setsockopt[PID: 365 (arping)]: fd:4, level:1, optname:25
+[   31.485209] firmadyne: sys_setsockopt[PID: 365 (arping)]: fd:4, level:1, optname:5
+[   32.251886] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   32.508629] firmadyne: sys_socket[PID: 367 (arping)]: family:17, type:2, protocol:0
+[   32.510164] firmadyne: sys_socket[PID: 367 (arping)]: family:2, type:2, protocol:0
+[   32.510407] firmadyne: sys_setsockopt[PID: 367 (arping)]: fd:4, level:1, optname:25
+[   32.510608] firmadyne: sys_setsockopt[PID: 367 (arping)]: fd:4, level:1, optname:5
+[   32.637328] cfg80211: Calling CRDA to update world regulatory domain
+[   32.936722] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   32.937510] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   33.253612] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   33.534093] firmadyne: sys_socket[PID: 385 (arping)]: family:17, type:2, protocol:0
+[   33.535609] firmadyne: sys_socket[PID: 385 (arping)]: family:2, type:2, protocol:0
+[   33.535853] firmadyne: sys_setsockopt[PID: 385 (arping)]: fd:4, level:1, optname:25
+[   33.536054] firmadyne: sys_setsockopt[PID: 385 (arping)]: fd:4, level:1, optname:5
+[   34.255592] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   34.553308] firmadyne: sys_socket[PID: 387 (arping)]: family:17, type:2, protocol:0
+[   34.554816] firmadyne: sys_socket[PID: 387 (arping)]: family:2, type:2, protocol:0
+[   34.555067] firmadyne: sys_setsockopt[PID: 387 (arping)]: fd:4, level:1, optname:25
+[   34.555274] firmadyne: sys_setsockopt[PID: 387 (arping)]: fd:4, level:1, optname:5
+[   35.032210] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   35.032922] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   35.258502] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   35.567459] firmadyne: sys_socket[PID: 405 (arping)]: family:17, type:2, protocol:0
+[   35.568019] firmadyne: sys_socket[PID: 405 (arping)]: family:2, type:2, protocol:0
+[   35.568260] firmadyne: sys_setsockopt[PID: 405 (arping)]: fd:4, level:1, optname:25
+[   35.568492] firmadyne: sys_setsockopt[PID: 405 (arping)]: fd:4, level:1, optname:5
+[   35.787337] cfg80211: Calling CRDA to update world regulatory domain
+[   36.260354] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   36.587691] firmadyne: sys_socket[PID: 407 (arping)]: family:17, type:2, protocol:0
+[   36.589114] firmadyne: sys_socket[PID: 407 (arping)]: family:2, type:2, protocol:0
+[   36.589419] firmadyne: sys_setsockopt[PID: 407 (arping)]: fd:4, level:1, optname:25
+[   36.589778] firmadyne: sys_setsockopt[PID: 407 (arping)]: fd:4, level:1, optname:5
+[   37.118663] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   37.119381] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   37.262043] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   37.615381] firmadyne: sys_socket[PID: 434 (arping)]: family:17, type:2, protocol:0
+[   37.617228] firmadyne: sys_socket[PID: 434 (arping)]: family:2, type:2, protocol:0
+[   37.617520] firmadyne: sys_setsockopt[PID: 434 (arping)]: fd:4, level:1, optname:25
+[   37.617729] firmadyne: sys_setsockopt[PID: 434 (arping)]: fd:4, level:1, optname:5
+killall: bpalogin: no process killed
+killall: dhcrelay: no process killed
+killall: exeNtp: no process killed
+killall: updatedd: no process killed
+[   38.667429] firmadyne: sys_socket[PID: 444 (arping)]: family:17, type:2, protocol:0
+[   38.668990] firmadyne: sys_socket[PID: 444 (arping)]: family:2, type:2, protocol:0
+[   38.669275] firmadyne: sys_setsockopt[PID: 444 (arping)]: fd:4, level:1, optname:25
+[   38.669499] firmadyne: sys_setsockopt[PID: 444 (arping)]: fd:4, level:1, optname:5
+killall: tproxy_cwf: no process killed
+killall: conn_log: no process killed
+[   38.754342] firmadyne: sys_socket[PID: 447 (iptables)]: family:2, type:3, protocol:255
+modprobe: could not parse modules.dep
+
+[   38.770091] firmadyne: sys_socket[PID: 447 (iptables)]: family:2, type:3, protocol:255
+iptables v1.2.8: can't initialize iptables table `filter': Module is wrong version
+Perhaps iptables or your kernel needs to be upgraded.
+[   38.780343] firmadyne: sys_socket[PID: 449 (iptables)]: family:2, type:3, protocol:255
+modprobe: could not parse modules.dep
+
+[   38.799489] firmadyne: sys_socket[PID: 449 (iptables)]: family:2, type:3, protocol:255
+iptables v1.2.8: can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+Perhaps iptables or your kernel needs to be upgraded.
+[   38.812648] firmadyne: sys_socket[PID: 455 (iptables)]: family:2, type:3, protocol:255
+modprobe: could not parse modules.dep
+
+[   38.823592] firmadyne: sys_socket[PID: 455 (iptables)]: family:2, type:3, protocol:255
+iptables v1.2.8: can't initialize iptables table `filter': Module is wrong version
+Perhaps iptables or your kernel needs to be upgraded.
+[   38.831019] firmadyne: sys_socket[PID: 457 (iptables)]: family:2, type:3, protocol:255
+modprobe: could not parse modules.dep
+
+[   38.855410] firmadyne: sys_socket[PID: 457 (iptables)]: family:2, type:3, protocol:255
+iptables v1.2.8: can't initialize iptables table `nat': Table does not exist (do you need to insmod?)
+Perhaps iptables or your kernel needs to be upgraded.
+killall: conn_log: no process killed
+killall: iptbl: no process killed
+[   38.937267] cfg80211: Exceeded CRDA call max attempts. Not calling CRDA
+killall: igmp: no process killed
+[   39.193106] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   39.208780] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   39.210198] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:2, protocol:0
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   39.692442] firmadyne: sys_socket[PID: 498 (arping)]: family:17, type:2, protocol:0
+[   39.695171] firmadyne: sys_socket[PID: 498 (arping)]: family:2, type:2, protocol:0
+[   39.695534] firmadyne: sys_setsockopt[PID: 498 (arping)]: fd:4, level:1, optname:25
+[   39.696023] firmadyne: sys_setsockopt[PID: 498 (arping)]: fd:4, level:1, optname:5
+[   40.208842] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   40.210684] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   40.249575] firmadyne: sys_socket[PID: 501 (ifconfig)]: family:2, type:2, protocol:0
+[   40.250648] firmadyne: __inet_insert_ifa[PID: 501 (ifconfig)]: device:eth0 ifa:0x00000000
+[   40.263313] firmadyne: sys_socket[PID: 502 (udhcpc)]: family:2, type:3, protocol:255
+[   40.288594] firmadyne: sys_socket[PID: 505 (ifconfig)]: family:2, type:2, protocol:0
+[   40.303679] firmadyne: sys_socket[PID: 506 (ifconfig)]: family:2, type:2, protocol:0
+[   40.304204] firmadyne: __inet_insert_ifa[PID: 506 (ifconfig)]: device:eth0 ifa:0x00000000
+[   40.308576] 8021q: adding VLAN 0 to HW filter on device eth0
+[   40.314479] firmadyne: sys_socket[PID: 502 (udhcpc)]: family:17, type:2, protocol:8
+[   40.316401] firmadyne: sys_socket[PID: 502 (udhcpc)]: family:17, type:2, protocol:8
+[   40.724938] firmadyne: sys_socket[PID: 508 (arping)]: family:17, type:2, protocol:0
+[   40.726495] firmadyne: sys_socket[PID: 508 (arping)]: family:2, type:2, protocol:0
+[   40.726750] firmadyne: sys_setsockopt[PID: 508 (arping)]: fd:4, level:1, optname:25
+[   40.727154] firmadyne: sys_setsockopt[PID: 508 (arping)]: fd:4, level:1, optname:5
+[   41.271636] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   41.340230] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   41.340881] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   41.751632] firmadyne: sys_socket[PID: 526 (arping)]: family:17, type:2, protocol:0
+[   41.753228] firmadyne: sys_socket[PID: 526 (arping)]: family:2, type:2, protocol:0
+[   41.753486] firmadyne: sys_setsockopt[PID: 526 (arping)]: fd:4, level:1, optname:25
+[   41.753678] firmadyne: sys_setsockopt[PID: 526 (arping)]: fd:4, level:1, optname:5
+[   42.273541] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   42.320116] firmadyne: sys_socket[PID: 502 (udhcpc)]: family:17, type:2, protocol:8
+[   42.772202] firmadyne: sys_socket[PID: 528 (arping)]: family:17, type:2, protocol:0
+[   42.773495] firmadyne: sys_socket[PID: 528 (arping)]: family:2, type:2, protocol:0
+[   42.773742] firmadyne: sys_setsockopt[PID: 528 (arping)]: fd:4, level:1, optname:25
+[   42.773946] firmadyne: sys_setsockopt[PID: 528 (arping)]: fd:4, level:1, optname:5
+[   43.275286] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   43.434877] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   43.435996] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   43.797181] firmadyne: sys_socket[PID: 546 (arping)]: family:17, type:2, protocol:0
+[   43.798727] firmadyne: sys_socket[PID: 546 (arping)]: family:2, type:2, protocol:0
+[   43.798996] firmadyne: sys_setsockopt[PID: 546 (arping)]: fd:4, level:1, optname:25
+[   43.799202] firmadyne: sys_setsockopt[PID: 546 (arping)]: fd:4, level:1, optname:5
+[   44.277134] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   44.323282] firmadyne: sys_socket[PID: 502 (udhcpc)]: family:17, type:2, protocol:8
+[   44.822258] firmadyne: sys_socket[PID: 548 (arping)]: family:17, type:2, protocol:0
+[   44.823806] firmadyne: sys_socket[PID: 548 (arping)]: family:2, type:2, protocol:0
+[   44.824078] firmadyne: sys_setsockopt[PID: 548 (arping)]: fd:4, level:1, optname:25
+[   44.824284] firmadyne: sys_setsockopt[PID: 548 (arping)]: fd:4, level:1, optname:5
+[   45.279035] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   45.533222] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   45.533879] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   45.835390] firmadyne: sys_socket[PID: 566 (arping)]: family:17, type:2, protocol:0
+[   45.836699] firmadyne: sys_socket[PID: 566 (arping)]: family:2, type:2, protocol:0
+[   45.837134] firmadyne: sys_setsockopt[PID: 566 (arping)]: fd:4, level:1, optname:25
+[   45.837368] firmadyne: sys_setsockopt[PID: 566 (arping)]: fd:4, level:1, optname:5
+[   46.280942] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   46.869681] firmadyne: sys_socket[PID: 568 (arping)]: family:17, type:2, protocol:0
+[   46.871295] firmadyne: sys_socket[PID: 568 (arping)]: family:2, type:2, protocol:0
+[   46.871543] firmadyne: sys_setsockopt[PID: 568 (arping)]: fd:4, level:1, optname:25
+[   46.871747] firmadyne: sys_setsockopt[PID: 568 (arping)]: fd:4, level:1, optname:5
+[   47.282990] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   47.632141] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   47.632832] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   47.633436] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:2, protocol:0
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   47.890352] firmadyne: sys_socket[PID: 590 (arping)]: family:17, type:2, protocol:0
+[   47.891690] firmadyne: sys_socket[PID: 590 (arping)]: family:2, type:2, protocol:0
+[   47.891953] firmadyne: sys_setsockopt[PID: 590 (arping)]: fd:4, level:1, optname:25
+[   47.892158] firmadyne: sys_setsockopt[PID: 590 (arping)]: fd:4, level:1, optname:5
+[   48.284781] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   48.915880] firmadyne: sys_socket[PID: 592 (arping)]: family:17, type:2, protocol:0
+[   48.917549] firmadyne: sys_socket[PID: 592 (arping)]: family:2, type:2, protocol:0
+[   48.917809] firmadyne: sys_setsockopt[PID: 592 (arping)]: fd:4, level:1, optname:25
+[   48.918016] firmadyne: sys_setsockopt[PID: 592 (arping)]: fd:4, level:1, optname:5
+[   49.286408] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   49.746460] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   49.747254] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   49.929260] firmadyne: sys_socket[PID: 610 (arping)]: family:17, type:2, protocol:0
+[   49.930624] firmadyne: sys_socket[PID: 610 (arping)]: family:2, type:2, protocol:0
+[   49.930882] firmadyne: sys_setsockopt[PID: 610 (arping)]: fd:4, level:1, optname:25
+[   49.931087] firmadyne: sys_setsockopt[PID: 610 (arping)]: fd:4, level:1, optname:5
+[   50.288200] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   50.953360] firmadyne: sys_socket[PID: 612 (arping)]: family:17, type:2, protocol:0
+[   50.954852] firmadyne: sys_socket[PID: 612 (arping)]: family:2, type:2, protocol:0
+[   50.955106] firmadyne: sys_setsockopt[PID: 612 (arping)]: fd:4, level:1, optname:25
+[   50.955322] firmadyne: sys_setsockopt[PID: 612 (arping)]: fd:4, level:1, optname:5
+[   51.289926] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   51.846745] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   51.847538] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   51.974000] firmadyne: sys_socket[PID: 630 (arping)]: family:17, type:2, protocol:0
+[   51.974530] firmadyne: sys_socket[PID: 630 (arping)]: family:2, type:2, protocol:0
+[   51.974767] firmadyne: sys_setsockopt[PID: 630 (arping)]: fd:4, level:1, optname:25
+[   51.974997] firmadyne: sys_setsockopt[PID: 630 (arping)]: fd:4, level:1, optname:5
+[   52.291688] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   52.990993] firmadyne: sys_socket[PID: 632 (arping)]: family:17, type:2, protocol:0
+[   52.992529] firmadyne: sys_socket[PID: 632 (arping)]: family:2, type:2, protocol:0
+[   52.992801] firmadyne: sys_setsockopt[PID: 632 (arping)]: fd:4, level:1, optname:25
+[   52.993024] firmadyne: sys_setsockopt[PID: 632 (arping)]: fd:4, level:1, optname:5
+[   53.293405] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   53.957060] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+[   53.957707] firmadyne: sys_socket[PID: 175 (ledctrl)]: family:2, type:3, protocol:255
+ioctl error
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   54.029744] firmadyne: sys_socket[PID: 643 (arping)]: family:17, type:2, protocol:0
+[   54.031040] firmadyne: sys_socket[PID: 643 (arping)]: family:2, type:2, protocol:0
+[   54.031289] firmadyne: sys_setsockopt[PID: 643 (arping)]: fd:4, level:1, optname:25
+[   54.031493] firmadyne: sys_setsockopt[PID: 643 (arping)]: fd:4, level:1, optname:5
+/proc/GPIO6: cannot create
+/proc/GPIO8: cannot create
+/proc/GPIO3: cannot create
+/proc/GPIO1: cannot create
+[   54.295259] firmadyne: sys_socket[PID: 182 (wan_connect)]: family:2, type:3, protocol:255
+ioctl error
+[   55.054566] firmadyne: sys_socket[PID: 652 (arping)]: family:17, type:2, protocol:0
+[   55.056159] firmadyne: sys_socket[PID: 652 (arping)]: family:2, type:2, protocol:0
+[   55.056442] firmadyne: sys_setsockopt[PID: 652 (arping)]: fd:4, level:1, optname:25
+[   55.056629] firmadyne: sys_setsockopt[PID: 652 (arping)]: fd:4, level:1, optname:5
+Creating TAP device tap48_0...
+Set 'tap48_0' persistent and owned by uid 0
+Bringing up TAP device...
+Adding route to 192.168.2.1...
+Starting firmware emulation... use Ctrl-a + x to exit
+qemu-system-arm: -netdev tap,id=net0,ifname=tap48_0,script=no: Duplicate ID 'net0' for netdev
+Deleting route...
+Bringing down TAP device...
+Deleting TAP device tap48_0...
+Set 'tap48_0' nonpersistent

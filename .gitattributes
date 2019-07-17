@@ -1,0 +1,2 @@
+*.tar.xz filter=lfs diff=lfs merge=lfs -text
+.idb filter=lfs diff=lfs merge=lfs -text

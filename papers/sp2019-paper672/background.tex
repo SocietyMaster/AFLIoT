@@ -1,0 +1,21 @@
+\section{Background}\label{sec:background}
+
+\subsection{American Fuzzy Lop~(AFL)}
+American Fuzzing Lop (AFL)~\cite{aflweb} is a famous coverage-based grey-box fuzzer which has been widely used to find software bugs in both academia and industry.  Although its approach seems to be ``naive'  which simply makes mutations based on the origin input (seed) and keeps track of the execution of target program by using lightweight instrumentation, it has been proved to be very efficient and effective. AFL has gain a good reputation by identifying a large number of unknown bugs~\cite{aflweb} in many popular opensource software projects. Next, we will go through some technique details to show basic ideas behind its design. 
+
+\subsubsection{\bf{Branch Coverage}}
+
+As a coverage-based gray-box fuzzer, AFL monitors the execution of the target program during the fuzzing process. Specifically, for each run of the target program, AFL maintains a 64KB map $shared\_mem[key]$ to keep track of the branch coverage information. It first generates a unique ID~($cur\_location$) for each basic block during the compilation and then instruments a small piece of code at each branch point to manipulate the map. If a certain basic block is hit during the execution, the instrumented code in this basic block increases the counter in \texttt{$shared\_mem[cur\_location \oplus prev\_location]$} by 1 where $prev\_location$ is the shifted ID of the basic block that hit before the branch point. To distinguish the execution order between two basic blocks, the instrumented code right shifts $cur\_location$ by 1 bit before assigns it to $pre\_location$~($pre\_location = cur\_location >> 1$). In this way, the entire execution path is recorded during each run of the target program and therefore AFL is capable of identifying new behaviors or internal states by comparing the executions paths that triggered by different inputs. All mutated inputs that can trigger new internal states within the target program are added to the input queue for further mutation in next runs, otherwise they are discarded. With the help of coverage-based guided fuzzing that described above, AFL is capable of exploring as many internal states of the target programs as possible, which significant increases the chance of finding bugs. 
+
+\subsubsection{\bf{Target Instrumentation}}
+
+The coverage measurement in AFL is implemented by instrumenting the target programs. Generally, such instrumentation is done during compilation and therefore requires source code of the target program. AFL provides two instrumentation approaches: assembly-level instrumentation and compiler-level instrumentation. The main difference is that the compiler-level instrumentation is performed on LLVM intermediate representation (IR) rather than manually instrumenting assembly code.  Such LLVM-based instrumentation has several advantages: 1.  It  benefits from many optimization features that provided by the compiler so it is more efficient; 2. It is CPU-independent so it can be applied to fuzz on non-x86 platforms. Specifically, AFL provides wrappers for different compilers which can be used to replace the original compiler in the building script of the target program, so the instrumentation is done during the building process. However, both instrumentation approaches leverage on compilers it is necessary for AFL to rebuild the target program from the source.  
+
+In addition, AFL also has the capability to fuzz on binary program without source code.  This feature is very useful when fuzzing many proprietary software and is implemented by leveraging on QEMU~\cite{qemu}, an emulator that allows runtime instrumentation. While this emulator-based approach is feasible when fuzzing on binary programs, it still suffers from a major limitation. Emulator-based solutions are usually expensive because the emulator itself consumes large amount of resources. Besides, the emulator-based runtime instrumentation also has performance cost, which can significantly slow down the execution speed of the target program by two to five times~\cite{aflreadme}. Such performance overhead is probably unacceptable in some cases especially when fuzzing large binary programs.
+
+%\subsubsection{``Fork-Server'' Optimization}
+
+%\subsubsection{\hl{AFL Workflow}}
+
+
+

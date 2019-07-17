@@ -1,0 +1,38 @@
+                   Taint Check Shadow Memory Structure
+
+        1 byte to 4 bytes               shadow memory table, each entry
++----------+       +----------+         has 4 bytes, which is index to
+| Global   | +---> |  Shadow  |         next tree node table
++----------+       +----------+         +-------+-------+-------+
+| Register | +---> |  Shadow  |         |       |       |       |
++----------+       +----------+         +-----------------------+ support:
+| Stack    | +---> |  Shadow  |         |       |       |       | union
++----------+       +----------+         +-----------------------+ clear
+| Heap     | +---> |  Shadow  | +-----> |       |       |       | find
++----------+       +----------+         +-----------------------+ insert
+ stack does not need cleanup            |       | index |       |
+                                        +-------+---+---+-------+
+                                                    |
++---------------------------------------------------+
+|   tree node table, each entry
+|   has 4 bytes, which is pointer           bi-direction binary trie
+|   to the binary trie                          +-----+--------+            +---+
+|                                               | bit | parent |
+|      +---------+                              +-----++-------+            ^
+|      |         |                              | left | right |            |
+|      +---------+                              +--+---+--+----+            |
+|      |         |                                 |      |                 |
+|      +---------+                        +--------+      +--------+        |
++--->  | pointer | +----+                 v                        v        |
+       +---------+      |           +--------------+       +-----+-+------+ | height
+       |         |      |           |  0  | parent |       |  1  | parent | | ==
+       +---------+      |           +-----++-------+       +-----++-------+ | bytes
+       |         |      |           | left | right |       | left | right | |
+       +---------+      |           +------+---+---+       +-+----+-------+ |
+                        |                      |             |              |
+                        |                      v             v              |
+                        |              +-----+-+------+   +--+--+--------+  |
+                        |              |  1  | parent |   |  0  | parent |  |
+                        +----------->  +-----++-------+   +-----++-------+  v
+                      backward search  | left | right |   | left | right |
+                      yield '10'       +------+-------+   +------+-------+  +---+
