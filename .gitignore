@@ -1,5 +1,6 @@
 # Manual
-afliot-deprecated
+lib/afliot-deprecated
+lib/afl-2.52b
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
