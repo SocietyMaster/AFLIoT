@@ -1,2 +1,0 @@
-#!/bin/bash
-/usr/bin/lcov --gcov-tool /root/afl/afl-cov/llvm-gcov.sh "$@"

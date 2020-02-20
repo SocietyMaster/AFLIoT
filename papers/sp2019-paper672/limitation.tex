@@ -1,8 +1,0 @@
-\section{Limitation}\label{sec:limit}
-Although \sysname has been proved as an lightweight fuzzing tool for Linux-based IoT devices with good efficiency and accuracy, we still acknowledge the following limitations:
-\begin{itemize}
-
- \item {\bf Accuracy of binary level instrumentation.} As described in previous sections, \sysname first leverage IDA Pro~\cite{ida} to identify all basic blocks in the target binary program and then for each basic block it performs binary level instrumentation. As a reverse engineer tool, IDA Pro usually achieves good accuracy. However, it is still possible for it to miss a small number of basic blocks in the target program, which can eventually affect the accuracy of binary level instrumentation in our approach. Empirically, IDA Pro can miss up to 5\% of basic blocks. Please note that such inaccuracy will only result in loss of branch coverage information in fuzzing process and will not affect the correctness of program execution.   
- 
- \item {\bf Efficiency of fuzzing on network daemon.} For network daemon programs, \sysname performs input redirection by hooking socket APIs. Although such feature has eliminated major performance overhead that caused by network operations, daemon programs may still be relatively slow in fuzzing. Our observation shows daemon programs usually run 1 to 2 times slower than command-line programs. 
-\end{itemize}
