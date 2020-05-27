@@ -1,3 +1,0 @@
-[submodule "lib/keystone"]
-	path = lib/keystone
-	url = https://github.com/xcdu/keystone
