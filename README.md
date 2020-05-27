@@ -82,6 +82,9 @@ export DESOCK_PORT=784
 # stupid check for AFL_SHM_ENV string, but it is in the libaflinit.so
 export AFL_SKIP_BIN_CHECK=1
 
+# core scheduling (it may be required to fuzz the binary by some system)
+# export AFL_NO_AFFINITY=1
+
 # afl setup
 echo core >/proc/sys/kernel/core_pattern
 ./afl-fuzz $@
