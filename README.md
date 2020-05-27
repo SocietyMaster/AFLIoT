@@ -33,7 +33,6 @@ Usage: afl-instrument.py -f elfpath [-o output] [-i idapath] [-d mode] [-s] [-p 
 -i      ida pro executable path, default is hardcoded
 -d      target is daemon, using 'desock' or 'client' mode
 -s      single thread mode without TLS
--p      only instrument code whose address <= 0x`pass`
 -h      show this
 ```
 
