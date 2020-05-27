@@ -101,7 +101,7 @@ Then you can test the common binaries by the following command, for instance:
 To test daemon program, you should make sure the daemon is already run in the background.
 ```shell
 # configure the DESOCK target port
-export DESOCK_PORT=784			# 指定目标端口
+export DESOCK_PORT=784
 # fuzz
 ./runafl -i input -o output [-d] -- ./targets/target-desock program_parameters
 ```
