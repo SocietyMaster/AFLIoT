@@ -3,6 +3,7 @@
 
 import os
 
+# some compling parameters.
 targets = [
     ('libaflinit.so',  'libaflinit.c -shared -fPIC'),
     ('libaflinit-cov.so',  'libaflinit-cov.c -shared -fPIC'),

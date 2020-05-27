@@ -17,6 +17,23 @@ from idautils import *
 import idc
 import json
 
+ARM_Conditionable_Branch_Instructions = [
+    'B', 'BL', 'BX', 'BLX', 'BXJ'
+]
+
+ARM_Condition_Oprands = [
+    'EQ', 'NE', 'CS', 'HS', 'CC', 'LO',
+    'MI', 'PL', 'VS', 'VC', 'HI', 'LS',
+    'GE', 'LT', 'GT', 'LE', 'AL'
+]
+
+ARM_Condition_Branch_Instructions = set()
+
+def gen_condition_branch_instructions():
+    for instr in ARM_Conditionable_Branch_Instructions:
+        for oprand in ARM_Condition_Oprands:
+            ARM_Condition_Branch_Instructions.add(instr+oprand)
+
 def get_text_segment():
     for ea in Segments():
         if SegName(ea) == '.text':
@@ -25,6 +42,20 @@ def get_text_segment():
             return segment_head, segment_tail
     return None, None
 
+def get_segments(segname_list):
+    segment_ea = {}
+    for ea in Segments():
+        if SegName(ea) in segname_list:
+            segment_ea[SegName(ea)] = (SegStart(ea), SegEnd(ea))
+    return segment_ea
+
+def add_all_funcs(startea):
+    startea -= 4
+    startea = find_not_func(startea, 1)
+    while startea != 0xffffffff:
+        add_func(startea)
+        startea = find_not_func(startea, 1)
+
 def main():
     autoWait()
 
@@ -32,19 +63,42 @@ def main():
     if not info.procName.upper().startswith('ARM') or info.is_64bit():
         print 'Wrong Architecture.'
         return
-
+# 
     bbs = []
-    for func in Functions(*get_text_segment()):
-        bbs.extend(map(lambda x: x.startEA, FlowChart(get_func(func))))
-    bbs = filter(lambda x: GetReg(x, "T") == 0, bbs)
+    # for func in Functions(*get_text_segment()):
+    #     bbs.extend(map(lambda x: x.startEA, FlowChart(get_func(func))))
+
+    segments = get_segments(['.init', '.plt', '.text', '.fini'])
+    # segments = get_segments(['.text'])
+    add_all_funcs(segments['.text'][0])
+
+    for seg_head, seg_tail in segments.values():
+        for funcea in Functions(start=seg_head, end=seg_tail):
+            bbs.append(funcea)
+            for (startea, endea) in Chunks(funcea):
+                for head in Heads(startea, endea):
+                    mnemonic=GetMnem(head)
+                    if (mnemonic.startswith('LDM') and GetOpnd(head, 1).find('PC') >= 0) \
+                        or (mnemonic.startswith('LDR') and GetOpnd(head, 0) == 'PC') \
+                        or mnemonic in ARM_Condition_Branch_Instructions or \
+                        mnemonic in ARM_Conditionable_Branch_Instructions:
+                        for xref in CodeRefsFrom(head, 0):
+                            if xref >= seg_head and xref < seg_tail:
+                                bbs.append(xref)
+                        if head + 4 < endea:
+                            bbs.append(head+4)
+
+    bbs = filter(lambda x: GetReg(x, "T") == 0 and is_code(GetFlags(x)), bbs)
     bbs = sorted(list(set(bbs)))
 
     if len(idc.ARGV) == 2:
         open(idc.ARGV[1], "w").write(json.dumps(bbs))
 
 if __name__ == '__main__':
+    gen_condition_branch_instructions()
     main()
     idc.Exit(0)
+
 """
 
 
@@ -212,7 +266,7 @@ ldr r4, =shm_path_index_pointer
 ldr r4, [r4]                @ shm_path_index_pointer
 ldr r2, [r4]                @ current shm_path_index
 add r3, r2, #1
-ldr r1, =0x3ffff
+ldr r1, =0x3fffff
 and r3, r3, r1              
 str r3, [r4]                @ shm_path_index++
 ldr r3, =shm_path_pointer
@@ -239,7 +293,7 @@ ldr r4, =shm_path_index_pointer
 ldr r4, [r4]                @ shm_path_index_pointer
 ldr r2, [r4]                @ current shm_path_index
 add r3, r2, #1
-ldr r0, =0x3ffff
+ldr r0, =0x3fffff
 and r3, r3, r0              
 str r3, [r4]                @ shm_path_index++
 ldr r3, =shm_path_pointer
@@ -248,6 +302,40 @@ ldr r4, ={offset:#x}
 str r4, [r3, r2, LSL #2]    @ store offset
 ldmfd sp!, {{r0, r2 - r4}}  @ restore registers
 """
+
+trampoline_template_with_tls_path_and_pmode = """
+stmfd sp!, {{r0 - r4}}      @ save registers
+ldr r0, =afl_prev_loc_offset
+ldr r1, [r0]                @ afl_prev_loc offset
+mrc p15, 0, r0, c13, c0, 3  @ tls pointer
+ldrh r2, [r0, r1]           @ load afl_prev_loc, zero-extended
+movw r4, #{magic:#x}        @ cur_loc, zero-extended
+eor r2, r2, r4              @ afl_prev_loc ^ cur_loc
+ldr r3, =shm_pointer
+ldr r3, [r3]  
+ldr r3, [r3]                @ shm_pointer
+cmp r3, #0
+beq bypass_before_aflinit_called{offset:#x}
+ldrb r4, [r3, r2]
+add r4, r4, #1              @ shm[xored] += 1
+strb r4, [r3, r2]
+movw r2, #{magic_shift:#x}  @ cur_loc >> 1
+strh r2, [r0, r1]           @ afl_prev_loc = cur_loc >> 1
+ldr r4, =shm_path_index_pointer
+ldr r4, [r4]                @ shm_path_index_pointer
+ldr r2, [r4]                @ current shm_path_index
+add r3, r2, #1
+ldr r1, =0x3ffff
+and r3, r3, r1              
+str r3, [r4]                @ shm_path_index++
+ldr r3, =shm_path_pointer
+ldr r3, [r3]                @ shm_path_pointer
+ldr r4, ={offset:#x}        
+str r4, [r3, r2, LSL #2]    @ store offset
+bypass_before_aflinit_called{offset:#x}:
+ldmfd sp!, {{r0 - r4}}      @ restore registers
+"""
+
 
 afl_init_cov = """
 stmfd sp!, {lr}
@@ -279,6 +367,12 @@ ldmfd sp!, {pc}
 
 afl_init_path = """
 stmfd sp!, {lr}
+ldr r0, =shm_pointer
+ldr r0, [r0]
+ldr r1, =shm_path_pointer
+ldr r1, [r1]
+ldr r2, =shm_path_index_pointer
+ldr r2, [r2]
 ldr r3, =afl_init_entry
 ldr r3, [r3]
 blx r3                  @ call afl_init_entry(r0, r1, r2)
@@ -341,6 +435,7 @@ def do_instrument(target, output, bbs, disable_tls, daemon_mode, verbose,
         else:
             elf.add_imported_library('libdesock.so')
             # elf.add_imported_library('libdesock3-xiaomithrift.so')
+            # elf.add_imported_library('libdesock3-persistent.so')
     elif daemon_mode == 'client':
         # init_entry = 'afl_manual_init_daemon'
         die('Historical use only.')
@@ -354,6 +449,7 @@ def do_instrument(target, output, bbs, disable_tls, daemon_mode, verbose,
         libaflinit_so = 'libaflinit-detailed-cov.so'
     elif path:
         libaflinit_so = 'libaflinit-path.so'
+        # libaflinit_so = 'libaflinit-persistent2.so'
     elf.add_imported_symbol(init_entry, 'afl_init_entry', libaflinit_so)
 
     if daemonize:
@@ -374,7 +470,7 @@ def do_instrument(target, output, bbs, disable_tls, daemon_mode, verbose,
         elf.add_pointer('shm_detailed_cov_pointer',
                         'afl_area_detailed_cov_initial')
     elif path:
-        elf.add_data('afl_area_path_initial', '\xff\xff\xff\xff' * 0x40000)
+        elf.add_data('afl_area_path_initial', '\xff\xff\xff\xff' * 0x400000)
         elf.add_pointer('shm_path_pointer',
                         'afl_area_path_initial')
         elf.add_data('afl_area_path_index_initial', '\x00\x00\x00\x00')
@@ -408,9 +504,10 @@ def do_instrument(target, output, bbs, disable_tls, daemon_mode, verbose,
             trampoline_template = trampoline_template_with_tls_detailed_cov
         elif path:
             trampoline_template = trampoline_template_with_tls_path
+            # trampoline_template = trampoline_template_with_tls_path_and_pmode
 
     bb_index = ['bb,index,magic\n']
-
+    
     for index, bb in enumerate(bbs):
         magic = new_magic(bb, bbcoverage)
         trampoline = ''
@@ -468,13 +565,14 @@ def tlog(msg):
 
 
 def usage():
-    die("Usage: %s -f elfpath [-o output] [-i idapath] [-d mode] \n"
+    die("Usage: %s -f elfpath [-o output] [-i idapath] [-d mode] [-t template] \n"
         "[-l interpreter_path] [-b basic_block_index_path] [-p] [-c]\n"
         "[-D] [-s] [-S] [-v] [-h]\n\n"
         "-f\ttarget elf file path\n"
         "-o\tpatched output file path, default is elfpath-patch\n"
         "-i\tida pro executable path, default is hardcoded\n"
         "-d\ttarget is daemon, using 'desock' or 'client' mode\n"
+        "-t\ttarget is xiaomi thrift, using 'api' or 'noapi' mode\n"
         "-l\tspecify new interpreter absolute path\n"
         "-b\tadd detailed basic block coverage support, and output\n"
         "\teach basic block index to the path specified\n"
@@ -504,7 +602,7 @@ def setup():
     path = False
 
     try:
-        opts, _ = getopt(sys.argv[1:], "hvspScDl:b:d:f:i:o:")
+        opts, _ = getopt(sys.argv[1:], "hvspScDl:b:d:f:i:o:t:")
     except:
         usage()
 
@@ -537,6 +635,13 @@ def setup():
                 daemon_mode = 'desock'
             elif value.strip() == 'client':
                 daemon_mode = 'client'
+            else:
+                usage()
+        elif opt == '-t':
+            if value.strip() == 'api':
+                xiaomithrift_template_mode = 'api'
+            elif value.strip() == 'noapi':
+                xiaomithrift_template_mode = 'noapi'
             else:
                 usage()
         else:

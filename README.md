@@ -18,7 +18,7 @@ python setup.py install
 Please make sure:
 1. The variable `ELFPATCHER_PATH` in line 324 of file `cov-instrument/afl-instrument.py`is the path of [ELFPatcher](https://github.com/SocietyMaster/ELFPatcher.git) repository you just cloned.
     ```python
-    def do_instrument(...): # line 323
+    def do_instrument(...): # line 417
         ELFPATCHER_PATH = os.path.abspath(os.path.join("..", "ELFPatcher"))
         sys.path.append(ELFPATCHER_PATH)
     ```
